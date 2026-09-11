@@ -1,0 +1,678 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Información de la página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ejemplo completo de HTML</title>
+
+    <!-- CSS interno -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header, footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        main {
+            background-color: white;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+        .boton {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- ENCABEZADO -->
+    <!-- ========================= -->
+
+    <header>
+        <h1>Mi página HTML</h1>
+        <p>Ejemplo de diferentes etiquetas HTML</p>
+    </header>
+
+
+    <!-- ========================= -->
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <!-- ========================= -->
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#texto">Texto</a>
+        <a href="#listas">Listas</a>
+        <a href="#tabla">Tabla</a>
+        <a href="#formulario">Formulario</a>
+    </nav>
+
+
+    <!-- ========================= -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ========================= -->
+
+    <main>
+
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio">
+
+            <h2>Encabezados</h2>
+
+            <h1>Encabezado H1</h1>
+            <h2>Encabezado H2</h2>
+            <h3>Encabezado H3</h3>
+            <h4>Encabezado H4</h4>
+            <h5>Encabezado H5</h5>
+            <h6>Encabezado H6</h6>
+
+            <hr>
+
+            <p>
+                Este es un párrafo utilizando la etiqueta
+                <strong>p</strong>.
+            </p>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- TEXTO -->
+        <!-- ========================= -->
+
+        <section id="texto">
+
+            <h2>Etiquetas de texto</h2>
+
+            <p>
+                Texto <strong>en negritas</strong>
+            </p>
+
+            <p>
+                Texto <b>también en negritas</b>
+            </p>
+
+            <p>
+                Texto <em>enfatizado</em>
+            </p>
+
+            <p>
+                Texto <i>en cursiva</i>
+            </p>
+
+            <p>
+                Texto <u>subrayado</u>
+            </p>
+
+            <p>
+                Texto <mark>resaltado</mark>
+            </p>
+
+            <p>
+                Texto <small>pequeño</small>
+            </p>
+
+            <p>
+                <del>Texto eliminado</del>
+            </p>
+
+            <p>
+                <ins>Texto insertado</ins>
+            </p>
+
+            <p>
+                Fórmula: H<sub>2</sub>O
+            </p>
+
+            <p>
+                Potencia: 5<sup>2</sup>
+            </p>
+
+            <blockquote>
+                "Este es un ejemplo de una cita."
+            </blockquote>
+
+            <p>
+                <abbr title="HyperText Markup Language">
+                    HTML
+                </abbr>
+                es un lenguaje de marcado.
+            </p>
+
+            <p>
+                <code>
+                    console.log("Hola mundo");
+                </code>
+            </p>
+
+            <pre>
+Este texto
+conserva los espacios
+y los saltos de línea.
+            </pre>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- LISTAS -->
+        <!-- ========================= -->
+
+        <section id="listas">
+
+            <h2>Listas</h2>
+
+            <h3>Lista desordenada</h3>
+
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+            </ul>
+
+
+            <h3>Lista ordenada</h3>
+
+            <ol>
+                <li>Encender computadora</li>
+                <li>Abrir navegador</li>
+                <li>Abrir página</li>
+            </ol>
+
+
+            <h3>Lista de descripción</h3>
+
+            <dl>
+
+                <dt>HTML</dt>
+                <dd>Lenguaje para estructurar páginas web.</dd>
+
+                <dt>CSS</dt>
+                <dd>Lenguaje para diseñar páginas web.</dd>
+
+                <dt>JavaScript</dt>
+                <dd>Lenguaje para agregar interactividad.</dd>
+
+            </dl>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- ENLACES -->
+        <!-- ========================= -->
+
+        <section>
+
+            <h2>Enlaces</h2>
+
+            <p>
+                <a href="https://www.google.com">
+                    Ir a Google
+                </a>
+            </p>
+
+            <p>
+                <a href="https://www.youtube.com" target="_blank">
+                    Abrir YouTube en otra pestaña
+                </a>
+            </p>
+
+            <p>
+                <a href="brauliotorres274@gmail.com">
+                    Enviar correo
+                </a>
+            </p>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- IMÁGENES -->
+        <!-- ========================= -->
+
+        <section>
+
+            <h2>Imágenes</h2>
+
+            <img
+                src="jinx.jpg"
+                alt="Imagen de ejemplo"
+                width="300"
+            >
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- AUDIO Y VIDEO -->
+        <!-- ========================= -->
+
+        <section>
+
+            <h2>Multimedia</h2>
+
+            <h3>Audio</h3>
+
+            <audio controls>
+                <source src="Vida En El Espectro.mp3" type="audio/mpeg">
+                Tu navegador no soporta audio.
+            </audio>
+
+
+            <h3>Video</h3>
+
+            <video width="400" controls>
+
+                <source src="igtf.mp4" type="video/mp4">
+
+                Tu navegador no soporta video.
+
+            </video>
+
+        </section>
+
+        <h3>GIF</h3>
+
+            <img src="gatobaile.gif" alt="GIF de ejemplo" width="400">
+
+
+        <!-- ========================= -->
+        <!-- TABLA -->
+        <!-- ========================= -->
+
+        <section id="tabla">
+
+            <h2>Tabla</h2>
+
+            <table>
+
+                <caption>
+                    Calificaciones
+                </caption>
+
+                <thead>
+
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Materia</th>
+                        <th>Calificación</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Braulio</td>
+                        <td>Programación</td>
+                        <td>95</td>
+                    </tr>
+
+                    <tr>
+                        <td>Anny</td>
+                        <td>Matemáticas</td>
+                        <td>90</td>
+                    </tr>
+
+                    <tr>
+                        <td>Karol</td>
+                        <td>Base de Datos</td>
+                        <td>98</td>
+                    </tr>
+
+                </tbody>
+
+                <tfoot>
+
+                    <tr>
+                        <td colspan="2">Promedio</td>
+                        <td>94.3</td>
+                    </tr>
+
+                </tfoot>
+
+            </table>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- FORMULARIO -->
+        <!-- ========================= -->
+
+        <section id="formulario">
+
+            <h2>Formulario</h2>
+
+            <form>
+
+                <label for="nombre">
+                    Nombre:
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Escribe tu nombre"
+                >
+
+                <br><br>
+
+
+                <label for="correo">
+                    Correo:
+                </label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="ejemplo@gmail.com"
+                >
+
+                <br><br>
+
+
+                <label for="password">
+                    Contraseña:
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                >
+
+                <br><br>
+
+
+                <label for="edad">
+                    Edad:
+                </label>
+
+                <input
+                    type="number"
+                    id="edad"
+                    name="edad"
+                    min="1"
+                    max="100"
+                >
+
+                <br><br>
+
+
+                <label for="fecha">
+                    Fecha:
+                </label>
+
+                <input
+                    type="date"
+                    id="fecha"
+                >
+
+                <br><br>
+
+
+                <label>
+                    Género:
+                </label>
+
+                <br>
+
+                <input type="radio" name="genero" value="hombre">
+                Hombre
+
+                <br>
+
+                <input type="radio" name="genero" value="mujer">
+                Mujer
+
+                <br>
+
+                <input type="radio" name="genero" value="otro">
+                Otro
+
+                <br><br>
+
+
+                <label>
+                    Lenguajes que conoces:
+                </label>
+
+                <br>
+
+                <input type="checkbox" name="html">
+                HTML
+
+                <br>
+
+                <input type="checkbox" name="css">
+                CSS
+
+                <br>
+
+                <input type="checkbox" name="js">
+                JavaScript
+
+                <br><br>
+
+
+                <label for="pais">
+                    País:
+                </label>
+
+                <select id="pais">
+
+                    <option>México</option>
+                    <option>Estados Unidos</option>
+                    <option>España</option>
+                    <option>Argentina</option>
+
+                </select>
+
+                <br><br>
+
+
+                <label for="comentario">
+                    Comentarios:
+                </label>
+
+                <br>
+
+                <textarea
+                    id="comentario"
+                    rows="5"
+                    cols="40"
+                    placeholder="Escribe un comentario..."
+                ></textarea>
+
+                <br><br>
+
+
+                <button type="submit">
+                    Enviar
+                </button>
+
+                <button type="reset">
+                    Limpiar
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- BOTONES -->
+        <!-- ========================= -->
+
+        <section>
+
+            <h2>Botones</h2>
+
+            <button onclick="saludar()">
+                Saludar
+            </button>
+
+            <button onclick="cambiarTexto()">
+                Cambiar texto
+            </button>
+
+            <p id="mensaje">
+                Texto original
+            </p>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- ELEMENTOS HTML5 -->
+        <!-- ========================= -->
+
+        <section>
+
+            <h2>Elementos HTML</h2>
+
+            <details>
+
+                <summary>
+                    Mostrar información
+                </summary>
+
+                <p>
+                    Esta información estaba oculta.
+                </p>
+
+            </details>
+
+            <br>
+
+            <progress
+                value="70"
+                max="100">
+            </progress>
+
+            <p>Progreso: 70%</p>
+
+            <meter
+                value="8"
+                min="0"
+                max="10">
+            </meter>
+
+            <p>Nivel: 8/10</p>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- IFRAME -->
+        <!-- ========================= -->
+
+        <section>
+
+            <h2>Iframe</h2>
+
+            <iframe
+                src="https://www.spotify.com"
+                width="500"
+                height="250">
+            </iframe>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- PIE DE PÁGINA -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <p>
+            Página creada con HTML
+        </p>
+
+        <p>
+            &copy; 2023 - Todos los derechos reservados
+        </p>
+
+    </footer>
+
+
+    <!-- ========================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================= -->
+
+    <script>
+
+        function saludar() {
+
+            alert("¡Hola mundo!");
+
+        }
+
+
+        function cambiarTexto() {
+
+            document.getElementById("mensaje").innerHTML =
+                "¡El texto ha cambiado!";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
