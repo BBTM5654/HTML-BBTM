@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Enjambre | Banda Mexicana</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                linear-gradient(rgba(10, 12, 24, 0.93), rgba(17, 18, 35, 0.97)),
+                url("enjambre-fondo.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #eeeeee;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .logo {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #b6a0ff;
+            box-shadow:
+                0 0 20px rgba(182, 160, 255, 0.5),
+                0 0 60px rgba(113, 83, 190, 0.3);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 75px;
+            letter-spacing: 12px;
+            margin: 0;
+            color: #ffffff;
+            text-shadow:
+                0 0 10px #9d83ff,
+                0 0 30px #6047a8;
+        }
+
+        header p {
+            font-size: 21px;
+            color: #c9c2dc;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13, 13, 27, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #39324d;
+        }
+
+        nav a {
+            color: #ddd5f5;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #b9a4ff;
+            text-shadow: 0 0 10px #8d72df;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        section {
+            background: rgba(24, 24, 42, 0.9);
+            border: 1px solid #39324d;
+            border-radius: 18px;
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        section h2 {
+            color: #c0adff;
+            font-size: 32px;
+            border-bottom: 2px solid #5b4a86;
+            padding-bottom: 12px;
+            margin-top: 0;
+        }
+
+        section h3 {
+            color: #d9d0f2;
+            font-size: 23px;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #d0ccd9;
+            font-size: 16px;
+        }
+
+        strong {
+            color: #c8b9ff;
+        }
+
+        em {
+            color: #b9a8e8;
+        }
+
+        mark {
+            background-color: #63519b;
+            color: white;
+            padding: 3px 7px;
+            border-radius: 4px;
+        }
+
+        .historia {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .dato {
+            background: rgba(40, 38, 61, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #8971c9;
+        }
+
+        .dato h3 {
+            margin-top: 0;
+        }
+
+        .albumes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .album {
+            background: #191827;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #3d3654;
+            transition: 0.3s;
+        }
+
+        .album:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(139, 112, 206, 0.25);
+        }
+
+        .album img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .album-info {
+            padding: 20px;
+        }
+
+        .album-info h3 {
+            margin-top: 0;
+        }
+
+        .album-info p {
+            font-size: 14px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 11px 18px;
+            margin-top: 10px;
+            background: #6c59a6;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #8872c7;
+            transform: scale(1.04);
+        }
+
+        .canciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .cancion {
+            background: #191827;
+            border: 1px solid #39324d;
+            border-radius: 10px;
+            padding: 18px;
+            transition: 0.3s;
+        }
+
+        .cancion:hover {
+            border-color: #806bb9;
+            transform: translateX(5px);
+        }
+
+        .cancion a {
+            color: #d0c1ff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .cancion a:hover {
+            color: white;
+        }
+
+        .lista {
+            line-height: 2.2;
+            color: #d4cfdf;
+        }
+
+        .lista li::marker {
+            color: #9b82df;
+        }
+
+        .imagen-artista {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 1px solid #4b4166;
+        }
+
+        .video {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .letra {
+            background: #12121f;
+            border-left: 5px solid #8b73ca;
+            padding: 25px;
+            border-radius: 10px;
+            line-height: 2;
+            color: #d8d3e3;
+        }
+
+        .quote {
+            font-size: 20px;
+            font-style: italic;
+            text-align: center;
+            color: #c7b9e8;
+            padding: 25px;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 20px;
+            color: #b9a5ee;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #0d0d18;
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid #39324d;
+        }
+
+        footer p {
+            margin: 5px;
+            color: #8f899e;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 45px;
+                letter-spacing: 6px;
+            }
+
+            header p {
+                font-size: 17px;
+            }
+
+            .historia {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 22px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 6px;
+            }
+
+            .video {
+                height: 250px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body id="inicio">
+
+
+    <!-- ============================= -->
+    <!-- CABECERA -->
+    <!-- ============================= -->
+
+    <header>
+
+        <img
+            src="enjambre.jpg"
+            alt="Enjambre"
+            class="logo"
+        >
+
+        <h1>ENJAMBRE</h1>
+
+        <p>
+            Una de las bandas más representativas del
+            <strong>rock mexicano contemporáneo</strong>,
+            reconocida por sus letras, melodías y una identidad
+            musical que combina diferentes influencias.
+        </p>
+
+        <a href="#historia" class="boton">
+            Conocer la banda
+        </a>
+
+    </header>
+
+
+    <!-- ============================= -->
+    <!-- NAVEGACIÓN -->
+    <!-- ============================= -->
+
+    <nav>
+
+        <a href="#historia">Historia</a>
+
+        <a href="#musica">Música</a>
+
+        <a href="#albumes">Álbumes</a>
+
+        <a href="#canciones">Canciones</a>
+
+        <a href="#letra">Letra</a>
+
+        <a href="#videos">Videos</a>
+
+        <a href="#enlaces">Enlaces</a>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- ============================= -->
+        <!-- HISTORIA -->
+        <!-- ============================= -->
+
+        <section id="historia">
+
+            <h2>Historia de Enjambre</h2>
+
+            <p>
+                <strong>Enjambre</strong> es una banda mexicana de rock
+                originaria de
+                <em>Fresnillo, Zacatecas</em>.
+                La agrupación comenzó su trayectoria musical a principios
+                de los años 2000 y con el paso del tiempo desarrolló
+                un estilo característico dentro de la escena del
+                rock mexicano.
+            </p>
+
+            <p>
+                La banda está relacionada con una combinación de
+                <mark>rock alternativo, indie rock y elementos de
+                música popular mexicana</mark>,
+                acompañados por letras que suelen hablar de relaciones,
+                emociones, experiencias personales y diferentes
+                situaciones de la vida.
+            </p>
+
+            <p>
+                A lo largo de su carrera, Enjambre ha publicado
+                diferentes producciones discográficas y ha realizado
+                presentaciones en distintos lugares de México y otros
+                países.
+            </p>
+
+
+            <div class="historia">
+
+                <div class="dato">
+
+                    <h3>Origen</h3>
+
+                    <p>
+                        Fresnillo, Zacatecas, México.
+                    </p>
+
+                </div>
+
+
+                <div class="dato">
+
+                    <h3>Género</h3>
+
+                    <p>
+                        Rock alternativo, indie rock y rock mexicano.
+                    </p>
+
+                </div>
+
+
+                <div class="dato">
+
+                    <h3>Trayectoria</h3>
+
+                    <p>
+                        Una carrera desarrollada a través de
+                        múltiples álbumes, sencillos y presentaciones.
+                    </p>
+
+                </div>
+
+
+                <div class="dato">
+
+                    <h3>Identidad</h3>
+
+                    <p>
+                        Letras emotivas, sonidos de rock y una
+                        identidad musical reconocible.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- MÚSICA -->
+        <!-- ============================= -->
+
+        <section id="musica">
+
+            <h2>La música de Enjambre</h2>
+
+            <p>
+                La música de Enjambre se caracteriza por una mezcla
+                de sonidos de rock con letras que pueden abordar
+                <strong>amor, nostalgia, relaciones, recuerdos,
+                soledad y experiencias cotidianas</strong>.
+            </p>
+
+            <p>
+                Su estilo ha evolucionado a través de sus diferentes
+                etapas, manteniendo elementos que permiten reconocer
+                a la banda.
+            </p>
+
+            <blockquote class="quote">
+                "La música puede convertir una experiencia
+                en un recuerdo que permanece."
+            </blockquote>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- ÁLBUMES -->
+        <!-- ============================= -->
+
+        <section id="albumes">
+
+            <h2>Discografía</h2>
+
+            <p>
+                Estos son algunos de los álbumes de Enjambre.
+                Puedes colocar el enlace correspondiente en cada
+                botón para dirigir al álbum en la plataforma que
+                prefieras.
+            </p>
+
+
+            <div class="albumes">
+
+
+                <!-- ÁLBUM 1 -->
+
+                <article class="album">
+
+                    <img
+                        src="album1.jpg"
+                        alt="Portada del álbum de Enjambre"
+                    >
+
+                    <div class="album-info">
+
+                        <h3>Álbum 1</h3>
+
+                        <p>
+                            Año de lanzamiento:
+                            <strong>2008</strong>
+                        </p>
+
+                        <a
+                            href="PON_AQUI_EL_LINK_DEL_ALBUM"
+                            target="_blank"
+                            class="boton"
+                        >
+                            Escuchar álbum
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ÁLBUM 2 -->
+
+                <article class="album">
+
+                    <img
+                        src="album2.jpg"
+                        alt="Portada del álbum de Enjambre"
+                    >
+
+                    <div class="album-info">
+
+                        <h3>Álbum 2</h3>
+
+                        <p>
+                            Una de las producciones de la banda.
+                        </p>
+
+                        <a
+                            href="PON_AQUI_EL_LINK_DEL_ALBUM"
+                            target="_blank"
+                            class="boton"
+                        >
+                            Escuchar álbum
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ÁLBUM 3 -->
+
+                <article class="album">
+
+                    <img
+                        src="album3.jpg"
+                        alt="Portada del álbum de Enjambre"
+                    >
+
+                    <div class="album-info">
+
+                        <h3>Álbum 3</h3>
+
+                        <p>
+                            Otra producción discográfica.
+                        </p>
+
+                        <a
+                            href="PON_AQUI_EL_LINK_DEL_ALBUM"
+                            target="_blank"
+                            class="boton"
+                        >
+                            Escuchar álbum
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ÁLBUM 4 -->
+
+                <article class="album">
+
+                    <img
+                        src="album4.jpg"
+                        alt="Portada del álbum de Enjambre"
+                    >
+
+                    <div class="album-info">
+
+                        <h3>Álbum 4</h3>
+
+                        <p>
+                            Producción musical de Enjambre.
+                        </p>
+
+                        <a
+                            href="PON_AQUI_EL_LINK_DEL_ALBUM"
+                            target="_blank"
+                            class="boton"
+                        >
+                            Escuchar álbum
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- CANCIONES -->
+        <!-- ============================= -->
+
+        <section id="canciones">
+
+            <h2>Canciones más conocidas</h2>
+
+            <p>
+                Algunas canciones que puedes incluir en esta sección
+                son las siguientes. Cada título funciona como
+                <strong>hipervínculo</strong>.
+            </p>
+
+
+            <div class="canciones">
+
+
+                <div class="cancion">
+
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                    >
+                        Dulce Soledad
+                    </a>
+
+                </div>
+
+
+                <div class="cancion">
+
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                    >
+                        Visita
+                    </a>
+
+                </div>
+
+
+                <div class="cancion">
+
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                    >
+                        Somos Ajenos
+                    </a>
+
+                </div>
+
+
+                <div class="cancion">
+
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                    >
+                        Enemigo
+                    </a>
+
+                </div>
+
+
+                <div class="cancion">
+
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                    >
+                        Vida en el Espejo
+                    </a>
+
+                </div>
+
+
+                <div class="cancion">
+
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                    >
+                        Manía Cardiaca
+                    </a>
+
+                </div>
+
+
+                <div class="cancion">
+
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                    >
+                        Dulce Soledad
+                    </a>
+
+                </div>
+
+
+                <div class="cancion">
+
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                    >
+                        Sábado Perpetuo
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- CANCIONES RECIENTES -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>Canciones y producciones recientes</h2>
+
+            <p>
+                En esta sección puedes colocar las canciones más
+                recientes de la banda y enlazarlas directamente
+                a Spotify, YouTube u otra plataforma.
+            </p>
+
+
+            <ol class="lista">
+
+                <li>
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                        style="color: #c9b9f5;"
+                    >
+                        Canción reciente 1
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                        style="color: #c9b9f5;"
+                    >
+                        Canción reciente 2
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="PON_AQUI_EL_LINK"
+                        target="_blank"
+                        style="color: #c9b9f5;"
+                    >
+                        Canción reciente 3
+                    </a>
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- LISTA DE ÁLBUMES -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>Álbumes y canciones</h2>
+
+            <p>
+                Los álbumes se pueden organizar mediante listas
+                ordenadas y desordenadas.
+            </p>
+
+
+            <h3>Álbum</h3>
+
+            <ol class="lista">
+
+                <li>
+                    Canción 1
+                </li>
+
+                <li>
+                    Canción 2
+                </li>
+
+                <li>
+                    Canción 3
+                </li>
+
+                <li>
+                    Canción 4
+                </li>
+
+                <li>
+                    Canción 5
+                </li>
+
+            </ol>
+
+
+            <a
+                href="PON_AQUI_EL_LINK_DEL_ALBUM"
+                target="_blank"
+                class="boton"
+            >
+                Abrir álbum completo
+            </a>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- IMAGEN -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>Enjambre</h2>
+
+            <img
+                src="enjambre-grupo.jpg"
+                alt="Fotografía de la banda Enjambre"
+                class="imagen-artista"
+            >
+
+            <p>
+                Fotografía de Enjambre.
+            </p>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- LETRA -->
+        <!-- ============================= -->
+
+        <section id="letra">
+
+            <h2>Letra de una canción</h2>
+
+            <p>
+                En esta sección puedes colocar la letra de una
+                canción para cumplir con el apartado solicitado
+                en la actividad.
+            </p>
+
+            <div class="letra">
+
+                <p>
+                    AQUÍ PUEDES COLOCAR LA LETRA DE LA CANCIÓN
+                    QUE ELIJAS.
+                </p>
+
+                <p>
+                    Puedes separar cada parte utilizando
+                    párrafos, saltos de línea y etiquetas de
+                    formato de texto.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- VIDEOS -->
+        <!-- ============================= -->
+
+        <section id="videos">
+
+            <h2>Videos</h2>
+
+            <p>
+                Aquí puedes colocar videos musicales de Enjambre.
+                Puedes utilizar enlaces de YouTube o insertar
+                videos mediante un iframe.
+            </p>
+
+
+            <iframe
+                class="video"
+                src="PON_AQUI_EL_LINK_DEL_VIDEO"
+                title="Video de Enjambre"
+                allowfullscreen>
+            </iframe>
+
+
+            <br><br>
+
+
+            <a
+                href="PON_AQUI_EL_LINK_DEL_VIDEO"
+                target="_blank"
+                class="boton"
+            >
+                Ver video
+            </a>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- ENLACES -->
+        <!-- ============================= -->
+
+        <section id="enlaces">
+
+            <h2>Enlaces oficiales</h2>
+
+            <p>
+                Puedes visitar las páginas y plataformas
+                relacionadas con Enjambre.
+            </p>
+
+
+            <ul class="lista">
+
+                <li>
+                    <a
+                        href="PON_AQUI_EL_LINK_OFICIAL"
+                        target="_blank"
+                        style="color: #c9b9f5;"
+                    >
+                        Página oficial
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="PON_AQUI_EL_LINK_SPOTIFY"
+                        target="_blank"
+                        style="color: #c9b9f5;"
+                    >
+                        Spotify
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="PON_AQUI_EL_LINK_YOUTUBE"
+                        target="_blank"
+                        style="color: #c9b9f5;"
+                    >
+                        YouTube
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="PON_AQUI_EL_LINK_INSTAGRAM"
+                        target="_blank"
+                        style="color: #c9b9f5;"
+                    >
+                        Instagram
+                    </a>
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- ENLACE A OTRA PÁGINA HTML -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>Más sobre Enjambre</h2>
+
+            <p>
+                Para continuar explorando la página puedes acceder
+                a otra página HTML.
+            </p>
+
+            <a
+                href="enjambre2.html"
+                class="boton"
+            >
+                Ir a otra página HTML
+            </a>
+
+        </section>
+
+
+        <a href="#inicio" class="volver">
+            ↑ Volver al inicio
+        </a>
+
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- FOOTER -->
+    <!-- ============================= -->
+
+    <footer>
+
+        <p>
+            © 2026 - Página dedicada a Enjambre
+        </p>
+
+        <p>
+            Proyecto académico realizado con HTML y CSS.
+        </p>
+
+        <p>
+            Hecho por Braulio Torres.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

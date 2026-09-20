@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enjambre | Rock mexicano desde Fresnillo, Zacatecas</title>
+  <meta name="description" content="Historia, integrantes, discografía completa, colaboraciones y reconocimientos de Enjambre, banda mexicana de rock formada en 2001.">
+  <meta name="theme-color" content="#151022">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       1. VARIABLES: paleta inspirada en el panal (enjambre),
+          el rock retro de los 70 y la noche
+       ========================================================== */
+    :root {
+      --tinta: #151022;
+      --tinta-2: #1d1630;
+      --panal: #2a2141;
+      --ambar: #f4a81d;
+      --miel: #ffd166;
+      --rosa: #ef476f;
+      --turquesa: #26c6b0;
+      --crema: #f7eedc;
+      --suave: #cdc4dd;
+      --linea: rgba(247, 238, 220, .14);
+      --radio: 16px;
+      --display: "Bowlby One", "Arial Black", Impact, sans-serif;
+      --texto: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --alto-header: 68px;
+    }
+
+    /* ==========================================================
+       2. BASE
+       ========================================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--alto-header) + 12px); }
+    body {
+      margin: 0;
+      font-family: var(--texto);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--crema);
+      background-color: var(--tinta);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0 34L0 84V50m56 0v34L28 100' fill='none' stroke='%23ffffff' stroke-opacity='.045'/%3E%3C/svg%3E");
+    }
+    img, svg, canvas { max-width: 100%; display: block; }
+    a { color: var(--miel); text-underline-offset: 4px; }
+    a:hover { color: #fff; }
+    :focus-visible { outline: 3px solid var(--miel); outline-offset: 3px; border-radius: 4px; }
+    h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; line-height: 1.1; margin: 0 0 .6em; letter-spacing: .01em; }
+    h2 { font-size: clamp(2rem, 5.2vw, 3.6rem); }
+    h3 { font-size: clamp(1.5rem, 3.4vw, 2.3rem); }
+    h4 { font-size: 1.05rem; color: var(--miel); }
+    p { margin: 0 0 1.1em; max-width: 64ch; }
+    ul, ol { padding-left: 1.2em; }
+    .solo-lectores { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .contenedor { width: min(1160px, 100% - 2.5rem); margin-inline: auto; }
+    section { padding: clamp(4rem, 9vw, 7rem) 0; }
+    .saltar { position: absolute; left: 1rem; top: -4rem; background: var(--miel); color: var(--tinta); padding: .6rem 1rem; border-radius: 8px; z-index: 200; font-weight: 800; }
+    .saltar:focus { top: 1rem; }
+
+    /* Barra de progreso de lectura */
+    .progreso { position: fixed; inset: 0 0 auto 0; height: 4px; z-index: 120; background: transparent; }
+    .progreso span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--ambar), var(--rosa), var(--turquesa)); }
+
+    /* ==========================================================
+       3. ENCABEZADO Y NAVEGACIÓN
+       ========================================================== */
+    .encabezado {
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      height: var(--alto-header);
+      display: flex; align-items: center;
+      background: rgba(21, 16, 34, 0);
+      transition: background .35s ease, height .35s ease, box-shadow .35s ease;
+    }
+    .encabezado.compacto {
+      --alto-header: 56px;
+      height: 56px;
+      background: rgba(21, 16, 34, .88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 var(--linea);
+    }
+    .encabezado .contenedor { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .marca { display: inline-flex; align-items: center; gap: .6rem; font-family: var(--display); font-size: 1.25rem; color: var(--crema); text-decoration: none; }
+    .marca svg { width: 30px; height: 30px; transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+    .marca:hover svg { transform: rotate(60deg) scale(1.1); }
+    .menu { display: flex; gap: .25rem; list-style: none; margin: 0; padding: 0; }
+    .menu a {
+      position: relative; display: block; padding: .5rem .85rem;
+      color: var(--suave); text-decoration: none; font-weight: 600; font-size: .95rem;
+      transition: color .25s;
+    }
+    .menu a::after {
+      content: ""; position: absolute; left: .85rem; right: .85rem; bottom: .2rem; height: 3px; border-radius: 3px;
+      background: var(--ambar); transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+    }
+    .menu a:hover, .menu a.activo { color: #fff; }
+    .menu a:hover::after, .menu a.activo::after { transform: scaleX(1); }
+    .boton-menu { display: none; background: none; border: 1px solid var(--linea); color: var(--crema); border-radius: 10px; padding: .45rem .7rem; font: inherit; font-weight: 600; cursor: pointer; }
+
+    @media (max-width: 900px) {
+      .boton-menu { display: inline-block; }
+      .menu {
+        position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0;
+        background: rgba(21, 16, 34, .97); padding: .5rem 1.25rem 1rem; border-bottom: 1px solid var(--linea);
+        clip-path: inset(0 0 100% 0); transition: clip-path .4s ease; visibility: hidden;
+      }
+      .menu.abierto { clip-path: inset(0 0 0 0); visibility: visible; }
+      .menu a { padding: .8rem .25rem; font-size: 1.05rem; }
+      .menu a::after { left: .25rem; right: auto; width: 2.5rem; }
+    }
+
+    /* ==========================================================
+       4. HERO con enjambre de abejas en canvas
+       ========================================================== */
+    .hero { position: relative; min-height: 100svh; display: grid; place-items: center; padding: 6rem 0 4rem; overflow: hidden; isolation: isolate; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -2;
+      background:
+        radial-gradient(60% 50% at 20% 25%, rgba(239, 71, 111, .30), transparent 70%),
+        radial-gradient(55% 55% at 80% 70%, rgba(38, 198, 176, .22), transparent 70%),
+        radial-gradient(50% 40% at 55% 45%, rgba(244, 168, 29, .20), transparent 70%);
+    }
+    #enjambre-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; touch-action: pan-y; }
+    .hero-contenido { text-align: center; pointer-events: none; }
+    .hero-contenido a, .hero-contenido button { pointer-events: auto; }
+    .hero h1 {
+      font-size: clamp(3.4rem, 15vw, 10.5rem);
+      margin: 0 0 .25em; color: var(--miel);
+      text-shadow: 0 .04em 0 #d98a00, 0 .08em 0 #b56c00, 0 .12em 0 #8d5200, 0 .2em .35em rgba(0, 0, 0, .55);
+      animation: entra-titulo 1.3s cubic-bezier(.2, 1.3, .4, 1) both;
+    }
+    .hero p.lema { margin: 0 auto 2rem; font-size: clamp(1.05rem, 2.4vw, 1.4rem); max-width: 34ch; color: var(--crema); }
+    .hero-botones { display: flex; flex-wrap: wrap; gap: .9rem; justify-content: center; }
+    .pista-cursor { position: absolute; bottom: 1.5rem; left: 0; right: 0; text-align: center; font-size: .9rem; color: var(--suave); margin: 0 auto; }
+    @keyframes entra-titulo { from { opacity: 0; transform: translateY(40px) scale(.94); letter-spacing: .25em; } to { opacity: 1; transform: none; letter-spacing: .01em; } }
+
+    .boton {
+      position: relative; overflow: hidden; display: inline-block;
+      padding: .85rem 1.6rem; border-radius: 999px; font-weight: 800; text-decoration: none; font-size: 1rem;
+      color: var(--tinta); background: var(--miel); border: 2px solid var(--miel);
+      transition: transform .25s ease, background .25s, color .25s;
+    }
+    .boton::before {
+      content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .55) 50%, transparent 70%);
+      transform: translateX(-120%); transition: transform .6s ease;
+    }
+    .boton:hover { transform: translateY(-3px); color: var(--tinta); }
+    .boton:hover::before { transform: translateX(120%); }
+    .boton.secundario { background: transparent; color: var(--crema); border-color: var(--crema); }
+    .boton.secundario:hover { background: var(--crema); color: var(--tinta); }
+
+    /* ==========================================================
+       5. CIFRAS (contadores animados)
+       ========================================================== */
+    .cifras { padding: 2.5rem 0; background: var(--ambar); color: var(--tinta); }
+    .cifras ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .cifras strong { display: block; font-family: var(--display); font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1; }
+    .cifras span { font-weight: 600; font-size: .95rem; }
+    @media (max-width: 640px) { .cifras ul { grid-template-columns: repeat(2, 1fr); row-gap: 1.6rem; } }
+
+    /* ==========================================================
+       6. HISTORIA
+       ========================================================== */
+    .historia-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .historia-texto p:first-of-type::first-letter {
+      font-family: var(--display); font-size: 3.6em; float: left; line-height: .85; padding: .08em .12em 0 0; color: var(--ambar);
+    }
+    blockquote.cita { margin: 2rem 0; padding: 1.2rem 1.5rem; border-left: 6px solid var(--ambar); background: var(--tinta-2); border-radius: 0 var(--radio) var(--radio) 0; font-size: 1.25rem; font-style: italic; }
+    blockquote.cita footer { margin-top: .6rem; font-size: .9rem; font-style: normal; color: var(--suave); }
+    .ficha-banda { position: sticky; top: calc(var(--alto-header) + 1.5rem); background: var(--panal); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1.6rem; }
+    .ficha-banda h3 { font-size: 1.4rem; }
+    dl.datos { margin: 0; }
+    dl.datos dt { font-weight: 800; color: var(--miel); font-size: .85rem; margin-top: .9rem; }
+    dl.datos dd { margin: .1rem 0 0; }
+    @media (max-width: 860px) { .historia-grid { grid-template-columns: 1fr; } .ficha-banda { position: static; } }
+
+    .etiquetas { display: flex; flex-wrap: wrap; gap: .45rem; list-style: none; padding: 0; margin: .8rem 0 1.2rem; }
+    .etiquetas li { padding: .2rem .75rem; border-radius: 999px; font-size: .82rem; font-weight: 600; border: 1px solid currentColor; color: var(--miel); background: rgba(255, 255, 255, .03); }
+
+    /* ==========================================================
+       7. INTEGRANTES
+       ========================================================== */
+    #integrantes { background: var(--tinta-2); }
+    .integrantes-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.4rem; list-style: none; padding: 0; margin: 2rem 0 0; }
+    .integrante { text-align: center; }
+    .integrante figure { margin: 0; }
+    .monograma {
+      width: 132px; height: 152px; margin: 0 auto 1rem; display: grid; place-items: center;
+      font-family: var(--display); font-size: 2.6rem; color: var(--tinta);
+      background: linear-gradient(160deg, var(--c1), var(--c2));
+      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+      transition: transform .5s cubic-bezier(.3, 1.6, .5, 1);
+    }
+    .integrante:hover .monograma { transform: rotate(8deg) scale(1.07); }
+    .integrante h3 { font-size: 1.25rem; margin-bottom: .2em; }
+    .integrante figcaption { color: var(--suave); font-size: .95rem; }
+    .exintegrantes { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--linea); }
+    .exintegrantes ul { columns: 2; column-gap: 2rem; max-width: 620px; }
+    @media (max-width: 560px) { .exintegrantes ul { columns: 1; } }
+
+    /* ==========================================================
+       8. DISCOGRAFÍA: índice de hexágonos + un apartado por álbum
+       ========================================================== */
+    .indice-hex { --h: clamp(64px, 15.5vw, 124px); margin: 2.5rem 0 1rem; display: flex; flex-direction: column; align-items: center; }
+    .indice-hex .fila { display: flex; justify-content: center; }
+    .indice-hex .fila + .fila { margin-top: calc(var(--h) * -.2887 + 4px); }
+    .hex {
+      width: var(--h); height: calc(var(--h) * 1.1547); margin: 0 2px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; text-decoration: none;
+      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+      background: linear-gradient(160deg, var(--a), var(--b)); color: var(--tinta);
+      transition: transform .3s cubic-bezier(.3, 1.6, .5, 1), filter .3s;
+    }
+    .hex:hover, .hex:focus-visible { transform: scale(1.14) rotate(-3deg); filter: brightness(1.15) saturate(1.1); z-index: 2; color: var(--tinta); }
+    .hex b { font-family: var(--display); font-weight: 400; font-size: clamp(.8rem, 2.6vw, 1.35rem); line-height: 1; }
+    .hex small { font-weight: 800; font-size: clamp(.46rem, 1.5vw, .72rem); line-height: 1.1; padding: 0 .5rem; margin-top: .2rem; }
+    .nota-indice { text-align: center; color: var(--suave); font-size: .92rem; margin: 0 auto 3rem; }
+
+    .album {
+      --fondo: color-mix(in srgb, var(--a) 14%, var(--tinta));
+      display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: start;
+      padding: clamp(1.5rem, 4vw, 3rem); margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, var(--fondo), color-mix(in srgb, var(--b) 10%, var(--tinta)));
+      border: 1px solid color-mix(in srgb, var(--a) 40%, transparent); border-radius: 28px;
+      opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease;
+    }
+    .album.visible { opacity: 1; transform: none; }
+    .album:nth-of-type(even) { grid-template-columns: 1fr minmax(240px, 380px); }
+    .album:nth-of-type(even) .portada { order: 2; }
+    .portada { margin: 0; position: sticky; top: calc(var(--alto-header) + 1.5rem); }
+    .arte {
+      position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; display: grid; place-items: center; text-align: center; padding: 1.2rem;
+      background:
+        radial-gradient(circle at 25% 20%, color-mix(in srgb, var(--a) 90%, #fff) 0 18%, transparent 19%),
+        linear-gradient(150deg, var(--a), var(--b));
+      box-shadow: 0 22px 45px rgba(0, 0, 0, .45);
+    }
+    .arte::before {
+      content: ""; position: absolute; width: 78%; aspect-ratio: .866; background: rgba(21, 16, 34, .22);
+      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); transition: transform 1.2s ease;
+    }
+    .album:hover .arte::before { transform: rotate(60deg); }
+    .arte span { position: relative; font-family: var(--display); color: var(--tinta); font-size: clamp(1.4rem, 4vw, 2.2rem); line-height: 1.05; text-shadow: 0 2px 0 rgba(255, 255, 255, .25); }
+    .arte em { position: absolute; right: 1rem; bottom: .7rem; font-style: normal; font-weight: 800; font-size: 1.1rem; color: var(--tinta); }
+    .portada figcaption { font-size: .8rem; color: var(--suave); margin-top: .6rem; }
+    .album-meta { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: 0 0 .4rem; font-weight: 800; color: color-mix(in srgb, var(--a) 80%, #fff); }
+    .album h3 a { color: var(--crema); text-decoration: none; background: linear-gradient(var(--a), var(--a)) 0 100% / 0 4px no-repeat; transition: background-size .45s ease, color .3s; padding-bottom: .1em; }
+    .album h3 a:hover, .album h3 a:focus-visible { background-size: 100% 4px; color: #fff; }
+    .album .etiquetas li { color: color-mix(in srgb, var(--a) 75%, #fff); }
+    .pistas { columns: 2; column-gap: 2.2rem; margin: .5rem 0 1.5rem; padding-left: 1.6em; }
+    .pistas li { break-inside: avoid; padding: .18rem 0; }
+    .pistas li::marker { color: var(--a); font-weight: 800; }
+    .pistas li.extra::after { content: " (edición especial)"; color: var(--suave); font-size: .85em; }
+    .album dl.datos dt { color: color-mix(in srgb, var(--a) 80%, #fff); }
+    .ficha-album { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0 1.5rem; }
+    @media (max-width: 860px) {
+      .album, .album:nth-of-type(even) { grid-template-columns: 1fr; }
+      .album:nth-of-type(even) .portada { order: 0; }
+      .portada { position: static; max-width: 340px; }
+      .pistas { columns: 1; }
+    }
+
+    .subtitulo-seccion { margin-top: 4.5rem; }
+    .eps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .ep { background: var(--panal); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1.4rem; border-top: 6px solid var(--c); transition: transform .3s ease, border-color .3s; }
+    .ep:hover { transform: translateY(-5px); }
+    .ep h4 { font-size: 1.15rem; color: var(--crema); margin-bottom: .3em; }
+    .ep h4 a { color: var(--crema); }
+    .ep p { font-size: .95rem; margin-bottom: .6rem; }
+    .ep ol, .ep ul { margin: .4rem 0 0; font-size: .95rem; }
+
+    /* ==========================================================
+       9. COLABORACIONES
+       ========================================================== */
+    #colaboraciones { background: var(--tinta-2); }
+    .tabla-envuelta { overflow-x: auto; border-radius: var(--radio); border: 1px solid var(--linea); margin-top: 1.6rem; }
+    table { width: 100%; border-collapse: collapse; min-width: 640px; }
+    caption { text-align: left; padding: 1rem 1.2rem; font-weight: 800; color: var(--miel); }
+    th, td { padding: .85rem 1.2rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--linea); }
+    thead th { background: var(--panal); font-size: .9rem; color: var(--miel); }
+    tbody tr { transition: background .25s; }
+    tbody tr:hover { background: rgba(244, 168, 29, .08); }
+    tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
+    tbody th { font-weight: 800; }
+    .tag-tipo { display: inline-block; padding: .1rem .6rem; border-radius: 999px; font-size: .78rem; font-weight: 800; background: var(--turquesa); color: var(--tinta); }
+    .tag-tipo.en-vivo { background: var(--rosa); color: #fff; }
+    .tag-tipo.cine { background: var(--miel); }
+    .tag-tipo.sencillo { background: var(--ambar); }
+
+    /* ==========================================================
+       10. CRONOLOGÍA (la línea crece con el scroll)
+       ========================================================== */
+    .cronologia { --prog: 0; position: relative; margin-top: 3rem; padding-left: 0; list-style: none; }
+    .cronologia::before, .cronologia::after { content: ""; position: absolute; left: 50%; top: 0; width: 4px; margin-left: -2px; border-radius: 4px; }
+    .cronologia::before { bottom: 0; background: var(--linea); }
+    .cronologia::after { height: calc(var(--prog) * 100%); background: linear-gradient(var(--ambar), var(--rosa)); }
+    .hito { position: relative; width: 50%; padding: 0 2.6rem 2.4rem 0; text-align: right; opacity: 0; transform: translateX(-24px); transition: opacity .6s ease, transform .6s ease; }
+    .hito:nth-child(even) { margin-left: 50%; padding: 0 0 2.4rem 2.6rem; text-align: left; transform: translateX(24px); }
+    .hito.visible { opacity: 1; transform: none; }
+    .hito::before {
+      content: ""; position: absolute; top: .35rem; right: -11px; width: 22px; height: 22px; background: var(--ambar);
+      clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    }
+    .hito:nth-child(even)::before { right: auto; left: -11px; background: var(--turquesa); }
+    .hito time { font-family: var(--display); font-size: 1.6rem; color: var(--miel); display: block; line-height: 1.1; }
+    .hito h3 { font-family: var(--texto); font-weight: 800; font-size: 1.05rem; margin: .2rem 0; }
+    .hito p { margin: 0; font-size: .97rem; color: var(--suave); }
+    .hito:nth-child(odd) p { margin-left: auto; }
+    @media (max-width: 760px) {
+      .cronologia::before, .cronologia::after { left: 14px; }
+      .hito, .hito:nth-child(even) { width: 100%; margin-left: 0; padding: 0 0 2rem 3rem; text-align: left; transform: translateX(20px); }
+      .hito::before, .hito:nth-child(even)::before { left: 3px; right: auto; }
+      .hito:nth-child(odd) p { margin-left: 0; }
+    }
+
+    /* ==========================================================
+       11. RECONOCIMIENTOS + ZACATECAS + CURIOSIDADES
+       ========================================================== */
+    #reconocimientos { background: var(--tinta-2); }
+    .zacatecas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.3rem; margin-top: 2rem; }
+    .tarjeta { background: var(--panal); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1.5rem; }
+    .tarjeta h3 { font-family: var(--texto); font-weight: 800; font-size: 1.15rem; color: var(--miel); margin-bottom: .4em; }
+    .tarjeta p { font-size: .97rem; margin-bottom: 0; }
+
+    details { border: 1px solid var(--linea); border-radius: var(--radio); background: var(--tinta-2); margin-bottom: .8rem; overflow: hidden; }
+    summary { cursor: pointer; padding: 1rem 1.3rem; font-weight: 800; list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-family: var(--display); font-size: 1.5rem; color: var(--ambar); transition: transform .35s ease; }
+    details[open] summary::after { transform: rotate(135deg); }
+    details[open] summary { color: var(--miel); }
+    details .contenido-detalle { padding: 0 1.3rem 1.2rem; animation: abre .45s ease; }
+    details p { margin-bottom: 0; }
+    @keyframes abre { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+    /* ==========================================================
+       12. PIE DE PÁGINA
+       ========================================================== */
+    footer.pie { background: #0e0a18; padding: 3.5rem 0 2rem; border-top: 4px solid var(--ambar); }
+    .pie-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
+    .pie h2 { font-size: 2rem; }
+    .pie h3 { font-family: var(--texto); font-size: 1rem; font-weight: 800; color: var(--miel); }
+    .pie ul { list-style: none; padding: 0; margin: 0; }
+    .pie li { padding: .15rem 0; }
+    .pie small { display: block; margin-top: 2.5rem; color: var(--suave); }
+    .volver { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 90; width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--miel); color: var(--tinta); font-weight: 800; font-size: 1.2rem; cursor: pointer; opacity: 0; transform: translateY(20px) scale(.8); pointer-events: none; transition: opacity .3s, transform .3s; }
+    .volver.visible { opacity: 1; transform: none; pointer-events: auto; }
+    @media (max-width: 760px) { .pie-grid { grid-template-columns: 1fr; } }
+
+
+    /* Botón de canción aleatoria y aviso */
+    button.boton { font: inherit; font-weight: 800; cursor: pointer; }
+    .boton.azar { background: var(--turquesa); border-color: var(--turquesa); }
+    .boton.azar:hover { background: #4fe0cb; border-color: #4fe0cb; }
+    .aviso {
+      position: fixed; left: 50%; bottom: 1.4rem; z-index: 130; max-width: min(92vw, 520px);
+      padding: .9rem 1.3rem; border-radius: 14px; background: var(--miel); color: var(--tinta); font-weight: 700; text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .45);
+      opacity: 0; transform: translate(-50%, 20px); pointer-events: none; transition: opacity .35s, transform .35s;
+    }
+    .aviso.visible { opacity: 1; transform: translate(-50%, 0); }
+
+    /* Sencillos */
+    .ep.ancho { grid-column: 1 / -1; }
+    .sencillos { list-style: none; padding: 0; margin: 1rem 0 0; columns: 3 220px; column-gap: 2rem; }
+    .sencillos li { break-inside: avoid; padding: .3rem 0; border-bottom: 1px dashed var(--linea); }
+    .sencillos small { color: var(--suave); margin-left: .3rem; }
+
+    /* ==========================================================
+       13. ACCESIBILIDAD: respetar "reducir movimiento"
+       ========================================================== */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .album, .hito { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="saltar" href="#historia">Saltar al contenido</a>
+  <div class="progreso" aria-hidden="true"><span id="barra-progreso"></span></div>
+
+  <!-- ==================== ENCABEZADO ==================== -->
+  <header class="encabezado" id="encabezado">
+    <div class="contenedor">
+      <a class="marca" href="#inicio" aria-label="Enjambre, ir al inicio">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><polygon points="16,1 29,8.5 29,23.5 16,31 3,23.5 3,8.5" fill="#f4a81d"/><path d="M8 13h16M8 19h16" stroke="#151022" stroke-width="3"/></svg>
+        Enjambre
+      </a>
+      <button class="boton-menu" id="boton-menu" aria-expanded="false" aria-controls="menu">Menú</button>
+      <nav aria-label="Principal">
+        <ul class="menu" id="menu">
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#integrantes">Integrantes</a></li>
+          <li><a href="#discos">Discos</a></li>
+          <li><a href="#colaboraciones">Colaboraciones</a></li>
+          <li><a href="#cronologia">Cronología</a></li>
+          <li><a href="#reconocimientos">Reconocimientos</a></li>
+          <li><a href="#zacatecas">Zacatecas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== INICIO ==================== -->
+    <section class="hero" id="inicio" aria-labelledby="titulo-hero">
+      <canvas id="enjambre-canvas" aria-hidden="true"></canvas>
+      <div class="contenedor hero-contenido">
+        <h1 id="titulo-hero">Enjambre</h1>
+        <p class="lema">Banda de rock mexicana formada en 2001 por los hermanos Navejas. Nació en California y creció en Fresnillo, Zacatecas.</p>
+        <div class="hero-botones">
+          <a class="boton" href="#discos">Ver discografía</a>
+          <a class="boton secundario" href="#historia">Leer su historia</a>
+          <button type="button" class="boton azar" id="btn-aleatoria">Canción aleatoria</button>
+        </div>
+      </div>
+      <p class="pista-cursor">Mueve el cursor o toca la pantalla y el enjambre te sigue. Haz clic para dispersarlo.</p>
+    </section>
+
+    <!-- ==================== CIFRAS ==================== -->
+    <aside class="cifras" aria-label="Enjambre en cifras">
+      <div class="contenedor">
+        <ul>
+          <li><strong data-meta="25">0</strong><span>años de trayectoria (2001 a 2026)</span></li>
+          <li><strong data-meta="9">0</strong><span>álbumes de estudio</span></li>
+          <li><strong data-meta="4">0</strong><span>llenos totales en el Auditorio Nacional</span></li>
+          <li><strong data-meta="3">0</strong><span>premios Indie-O Music Awards</span></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ==================== HISTORIA ==================== -->
+    <section id="historia" aria-labelledby="titulo-historia">
+      <div class="contenedor historia-grid">
+        <div class="historia-texto">
+          <h2 id="titulo-historia">Su historia</h2>
+
+          <p>Todo empezó en 1994, en una preparatoria de Fresnillo, Zacatecas. Luis Humberto y Rafael Navejas, junto con César Sánchez, formaron Los cuatro fantásticos, un grupo de punk influido por Nirvana, Green Day y NOFX. Eran tres, pero se anunciaban como cuatro: el integrante que faltaba era la Mujer Invisible, personaje de los cómics que le encantaban a Luis Humberto.</p>
+
+          <p>En 1998 la familia Navejas emigró a Estados Unidos. Ya en California, mientras Luis Humberto estudiaba cine, él y Rafael fundaron Enjambre en 2001 junto a su primo Romeo. El nombre evoca un grupo de abejas y, de paso, juega con el apellido Navejas.</p>
+
+          <p>En 2004 firmaron con Oso Records y en 2005 salió <em>Consuelo en domingo</em>, su disco debut. Vendió poco, pero les dio tres nominaciones a Premios Lo Nuestro. Ese mismo año se fueron Nicolás Saavedra y Osamu Nishitani por diferencias creativas, y los hermanos regresaron a México a armar una nueva alineación con Julián Navejas en los teclados, Ángel Sánchez en la batería y Javier Mejía en la guitarra.</p>
+
+          <blockquote class="cita">
+            <p>«Somos pasajeros de este mundo, estamos aquí un rato y luego nos vamos.»</p>
+            <footer>Luis Humberto Navejas, explicando el título de <cite>Los huéspedes del orbe</cite></footer>
+          </blockquote>
+
+          <p>Con <em>El segundo es felino</em> (2008) se volvieron un nombre grande del rock independiente y se mudaron a la Ciudad de México. EMI los fichó a finales de 2009 y <em>Daltónico</em> (2010) los llevó por primera vez al Teatro Metropólitan. Después vinieron <em>Los huéspedes del orbe</em>, <em>Proaño</em> e <em>Imperfecto extraño</em>, discos grabados en buena parte en Sonic Ranch, Texas, y giras que llegaron al Auditorio Nacional y al Palacio de los Deportes.</p>
+
+          <p>Su sonido mira a los años sesenta, setenta y ochenta: rock progresivo, sintetizadores retro y letras surrealistas que cada quien puede leer a su manera. En 2021 Javier Mejía dejó la banda y Enjambre siguió adelante con guitarristas de apoyo. Publicaron <em>Ambrosía</em>, un EP en inglés, y en 2023 <em>Noches de salón</em>, un disco grabado en vivo con aire de bolero y danzón. Su álbum más reciente es <em>Daños Luz</em> (2026).</p>
+        </div>
+
+        <aside class="ficha-banda" aria-labelledby="ficha-titulo">
+          <h3 id="ficha-titulo">Ficha de la banda</h3>
+          <dl class="datos">
+            <dt>Formación</dt><dd>2001, Santa Ana, California</dd>
+            <dt>Desarrollo</dt><dd>Fresnillo, Zacatecas, México</dd>
+            <dt>Géneros</dt><dd>Indie rock, pop rock, rock alternativo</dd>
+            <dt>Sello</dt><dd>Universal Music México</dd>
+            <dt>Integrantes actuales</dt><dd>Luis Humberto, Rafael, Julián e Isaac Navejas, y Ángel Sánchez</dd>
+            <dt>Sitio oficial</dt><dd><a href="https://www.enjambremusica.com/" target="_blank" rel="noopener noreferrer">enjambremusica.com</a></dd>
+          </dl>
+          <ul class="etiquetas" aria-label="Etiquetas">
+            <li>Rock mexicano</li><li>Indie</li><li>Sintetizadores</li><li>Zacatecas</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==================== INTEGRANTES ==================== -->
+    <section id="integrantes" aria-labelledby="titulo-integrantes">
+      <div class="contenedor">
+        <h2 id="titulo-integrantes">Integrantes</h2>
+        <p>Tres hermanos, un primo y un amigo de Fresnillo. Así suena hoy el enjambre.</p>
+
+        <ul class="integrantes-lista">
+          <li class="integrante">
+            <figure>
+              <div class="monograma" style="--c1:#ffd166;--c2:#f4a81d" aria-hidden="true">LH</div>
+              <h3>Luis Humberto Navejas</h3>
+              <figcaption>Voz y guitarra. Compositor y autor de las letras.</figcaption>
+            </figure>
+          </li>
+          <li class="integrante">
+            <figure>
+              <div class="monograma" style="--c1:#26c6b0;--c2:#4cc9f0" aria-hidden="true">RN</div>
+              <h3>Rafael Navejas</h3>
+              <figcaption>Bajo y coros. Director musical de <em>Noches de salón</em>.</figcaption>
+            </figure>
+          </li>
+          <li class="integrante">
+            <figure>
+              <div class="monograma" style="--c1:#ef476f;--c2:#ff9f1c" aria-hidden="true">JN</div>
+              <h3>Julián Navejas</h3>
+              <figcaption>Teclados y coros. Productor de <em>Los huéspedes del orbe</em>.</figcaption>
+            </figure>
+          </li>
+          <li class="integrante">
+            <figure>
+              <div class="monograma" style="--c1:#c77dff;--c2:#7b5cff" aria-hidden="true">AS</div>
+              <h3>Ángel Sánchez</h3>
+              <figcaption>Batería. Amigo de la banda desde Fresnillo.</figcaption>
+            </figure>
+          </li>
+          <li class="integrante">
+            <figure>
+              <div class="monograma" style="--c1:#f7eedc;--c2:#cdc4dd" aria-hidden="true">IN</div>
+              <h3>Isaac Navejas</h3>
+              <figcaption>Guitarra. También diseña los artes de la banda.</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <div class="exintegrantes">
+          <h3>Antiguos integrantes</h3>
+          <ul>
+            <li><strong>Javier Mejía</strong>, guitarra, de 2007 a 2021</li>
+            <li><strong>Romeo Navejas</strong>, uno de los fundadores en 2001</li>
+            <li><strong>Nicolás Saavedra</strong>, batería en la primera etapa</li>
+            <li><strong>Osamu Nishitani</strong>, guitarra y teclados en la primera etapa</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DISCOS ==================== -->
+    <section id="discos" aria-labelledby="titulo-discos">
+      <div class="contenedor">
+        <h2 id="titulo-discos">Discografía</h2>
+        <p>Nueve álbumes de estudio y varios EP y sencillos. Elige un hexágono para saltar a su disco. Cada título abre el álbum en Spotify.</p>
+        <p><a class="boton" href="https://open.spotify.com/intl-es/artist/1ZdhAl62G6ZlEKqIwUAfZR" target="_blank" rel="noopener noreferrer">Toda la discografía en Spotify</a></p>
+
+        <nav class="indice-hex" aria-label="Índice de álbumes">
+          <div class="fila">
+            <a class="hex" href="#consuelo-en-domingo" style="--a:#c77dff;--b:#5a189a"><b>05</b><small>Consuelo en domingo</small></a>
+            <a class="hex" href="#el-segundo-es-felino" style="--a:#ff9f1c;--b:#e71d36"><b>08</b><small>El segundo es felino</small></a>
+            <a class="hex" href="#daltonico" style="--a:#06d6a0;--b:#ffd166"><b>10</b><small>Daltónico</small></a>
+            <a class="hex" href="#los-huespedes-del-orbe" style="--a:#4cc9f0;--b:#f72585"><b>12</b><small>Huéspedes del orbe</small></a>
+            <a class="hex" href="#proano" style="--a:#d6d6e4;--b:#a1662f"><b>14</b><small>Proaño</small></a>
+          </div>
+          <div class="fila">
+            <a class="hex" href="#imperfecto-extrano" style="--a:#ff6b6b;--b:#4d96ff"><b>17</b><small>Imperfecto extraño</small></a>
+            <a class="hex" href="#proximos-projimos" style="--a:#00f5d4;--b:#9b5de5"><b>20</b><small>Próximos prójimos</small></a>
+            <a class="hex" href="#noches-de-salon" style="--a:#e9c46a;--b:#9d0208"><b>23</b><small>Noches de salón</small></a>
+            <a class="hex" href="#danos-luz" style="--a:#ffe66d;--b:#ff6b35"><b>26</b><small>Daños Luz</small></a>
+          </div>
+        </nav>
+        <p class="nota-indice">Los números son el año de cada disco.</p>
+
+        <!-- ============ 2005 · CONSUELO EN DOMINGO ============ -->
+        <article class="album" id="consuelo-en-domingo" style="--a:#c77dff;--b:#5a189a" aria-labelledby="t-consuelo">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/consuelo-en-domingo.jpg" alt="Portada de Consuelo en domingo"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de Consuelo en domingo"><span>Consuelo en domingo</span><em>2005</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2005-03-08">8 de marzo de 2005</time></p>
+            <h3 id="t-consuelo">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/5uVSX48sXgm6ErGlpsYyn3" target="_blank" rel="noopener noreferrer">Consuelo en domingo</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>Álbum debut</li><li>Oso Records</li><li>Rock progresivo</li><li>California</li>
+            </ul>
+            <p>El disco debut, grabado en el sur de California y editado por Oso Records. Mezcla experimentación y rock progresivo, y según la propia banda cada canción narra una escena dentro de una misma historia. Vendió poco, pero bastó para llamar la atención: los Premios Lo Nuestro 2006 nominaron «Biografía» como canción del año, y a Enjambre como artista y álbum del año.</p>
+            <h4>Canciones</h4>
+            <ol class="pistas">
+              <li>Extraviados</li><li>Biografía</li><li>Momento</li><li>Grave edad</li><li>Atentado</li><li>El hombre del mañana</li>
+              <li>El beso del payaso</li><li>Gente de juguete</li><li>Ojos tristes</li><li>Mujer en la caja</li><li>Disfraz de carne y hueso</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Canciones</dt><dd>11</dd></div>
+              <div><dt>Duración</dt><dd>Unos 50 minutos</dd></div>
+              <div><dt>Producción</dt><dd>Javier Castellanos</dd></div>
+              <div><dt>Grabado en</dt><dd>San Gabriel y Santa Ana, California</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ 2008 · EL SEGUNDO ES FELINO ============ -->
+        <article class="album" id="el-segundo-es-felino" style="--a:#ff9f1c;--b:#e71d36" aria-labelledby="t-felino">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/el-segundo-es-felino.jpg" alt="Portada de El segundo es felino"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de El segundo es felino"><span>El segundo es felino</span><em>2008</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2008">2008</time></p>
+            <h3 id="t-felino">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/6MKWjtAaCgbK3AXFr8FMUe" target="_blank" rel="noopener noreferrer">El segundo es felino</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>Su primer gran éxito</li><li>Vive Latino 2009</li><li>Dueto con Denise Gutiérrez</li>
+            </ul>
+            <p>El disco que los hizo populares. Ya suena la alineación con Julián, Ángel y Javier, y en «Impacto» canta con ellos Denise Gutiérrez, de Hello Seahorse!. El éxito los llevó a mudarse a la Ciudad de México y a tocar en el Vive Latino de 2009. Por su trabajo aquí, Julián Navejas ganó el Indie-O de productor nuevo del año en 2010.</p>
+            <h4>Canciones</h4>
+            <ol class="pistas">
+              <li>Untitled</li><li>Segundo tema</li><li>Manía cardíaca</li><li>Fe, línea recta</li><li>Ausencia de cocina</li>
+              <li>Néctar</li><li>Impaciente</li><li>Las 12 am y su mascota</li><li>Suspira</li><li>Impacto</li>
+              <li>De nadie</li><li>Reddish sky</li><li>Madame siamés</li><li>Espalda de bronce</li><li>El último tema</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Canciones</dt><dd>15</dd></div>
+              <div><dt>Sencillos</dt><dd>Manía cardíaca, Ausencia de cocina, Último tema, Impacto</dd></div>
+              <div><dt>Invitada</dt><dd>Denise Gutiérrez</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ 2010 · DALTÓNICO ============ -->
+        <article class="album" id="daltonico" style="--a:#06d6a0;--b:#ffd166" aria-labelledby="t-daltonico">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/daltonico.jpg" alt="Portada de Daltónico"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de Daltónico"><span>Daltónico</span><em>2010</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2010-09-28">28 de septiembre de 2010</time></p>
+            <h3 id="t-daltonico">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/5oWrwOXe12fNZc4r13XODy" target="_blank" rel="noopener noreferrer">Daltónico</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>EMI</li><li>Disco de oro</li><li>Teatro Metropólitan</li><li>Gira Daltónica</li>
+            </ul>
+            <p>Su primer disco con una discográfica grande y un éxito en todo el país. «Dulce soledad» y «Visita» los pusieron en lo más alto de las listas de rock y pop de México. Gracias a él llegaron por primera vez al Teatro Metropólitan y recorrieron México y parte de Estados Unidos con la Gira Daltónica. En 2011 salió una edición especial con dos temas inéditos y un DVD del concierto en el Metropólitan, donde Alejandro Marcovich, de Caifanes, se subió a tocar «Estás dormida».</p>
+            <h4>Canciones</h4>
+            <ol class="pistas">
+              <li>Cobarde</li><li>Visita</li><li>Cambiante</li><li>Dulce soledad</li><li>Sanguijuela</li><li>Eliza mi hortaliza</li>
+              <li>Makin' it back</li><li>Madrugada</li><li>Intruso</li><li>La duda</li><li>Enemigo</li><li>Ciencia de la lluvia</li>
+              <li>¿Cómo le llevo serenata?</li>
+              <li class="extra">Tu yugular dulce hogar</li><li class="extra">Amenaza</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Canciones</dt><dd>13 (más 2 inéditas en la edición especial)</dd></div>
+              <div><dt>Sencillos</dt><dd>Dulce soledad, Visita, Cobarde, Madrugada, Enemigo, Intruso</dd></div>
+              <div><dt>Invitado</dt><dd>Alejandro Marcovich, en vivo</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ 2012 · LOS HUÉSPEDES DEL ORBE ============ -->
+        <article class="album" id="los-huespedes-del-orbe" style="--a:#4cc9f0;--b:#f72585" aria-labelledby="t-huespedes">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/huespedes-del-orbe.jpg" alt="Portada de Enjambre y los huéspedes del orbe"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de Enjambre y los huéspedes del orbe"><span>Los huéspedes del orbe</span><em>2012</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2012-10-24">24 de octubre de 2012</time></p>
+            <h3 id="t-huespedes">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/1uFaQla0ev4HyXQSoViXSi" target="_blank" rel="noopener noreferrer">Enjambre y los huéspedes del orbe</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>Disco de platino</li><li>Sonic Ranch</li><li>Auditorio Nacional</li><li>Rock progresivo</li>
+            </ul>
+            <p>Su cuarto álbum, producido por Julián Navejas y grabado en el estudio Sonic Ranch, en Texas, donde conocieron al productor inglés Stephen Short. Bebe del rock progresivo y los sintetizadores de los años sesenta y setenta. La portada muestra a unos niños explorando frente a un hotel, una imagen para hablar de la vida como algo pasajero. Lo presentaron en el Auditorio Nacional el 30 de noviembre de 2012, y «El ordinario» sonó en la película mexicana <em>El más buscado</em>.</p>
+            <h4>Canciones</h4>
+            <ol class="pistas">
+              <li>Reflejo</li><li>Cámara de faltas</li><li>Homografobia</li><li>Falacia</li><li>La ley y ladilla</li><li>Viceversa</li>
+              <li>El ordinario</li><li>Huéspedes del orbe</li><li>Somos ajenos</li><li>Alicia</li><li>Maleable</li>
+              <li>Elemento</li><li>Transeúnte</li><li>Egohistería</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Canciones</dt><dd>14</dd></div>
+              <div><dt>Sencillos</dt><dd>Somos ajenos, Elemento, Cámara de faltas, Viceversa</dd></div>
+              <div><dt>Producción</dt><dd>Julián Navejas</dd></div>
+              <div><dt>Arte</dt><dd>Rafael y Luis Humberto Navejas, inspirados en cómics como Kalimán y Blue Demon</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ 2014 · PROAÑO ============ -->
+        <article class="album" id="proano" style="--a:#d6d6e4;--b:#a1662f" aria-labelledby="t-proano">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/proano.jpg" alt="Portada de Proaño"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de Proaño"><span>Proaño</span><em>2014</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2014-10-14">14 de octubre de 2014</time></p>
+            <h3 id="t-proano">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/0M56ul1MNAOoEvW6tvpar4" target="_blank" rel="noopener noreferrer">Proaño</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>Disco de platino</li><li>Mina Proaño</li><li>Fresnillo</li><li>Palacio de los Deportes</li>
+            </ul>
+            <p>Su quinto álbum se llama como la Mina Proaño, en Fresnillo, Zacatecas: un guiño a su tierra. También se grabó en Sonic Ranch, y lo presentaron en la Ciudad de México el 28 de octubre, en el Plaza Condesa, con firma de autógrafos. Para lanzarlo se aliaron con chocolates Crunch de Nestlé: los fans escaneaban el código de las envolturas para desbloquear las canciones. En 2015 lo celebraron con un concierto en el Palacio de los Deportes y una versión deluxe.</p>
+            <h4>Canciones</h4>
+            <ol class="pistas">
+              <li>Argentum</li><li>Hematófago</li><li>En deuda</li><li>Sábado perpetuo</li><li>Tulipanes</li><li>Rosa náutica</li>
+              <li>Dama demencia</li><li>Por esta razón</li><li>Nueve</li><li>Semiluna</li><li>Hombre elefante</li>
+              <li>Tras la puerta</li><li>Calzada Proaño</li><li>De paso</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Canciones</dt><dd>14</dd></div>
+              <div><dt>Sencillos</dt><dd>Hematófago, Tulipanes, Rosa náutica, Sábado perpetuo</dd></div>
+              <div><dt>Grabado en</dt><dd>Sonic Ranch, Texas</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ 2017 · IMPERFECTO EXTRAÑO ============ -->
+        <article class="album" id="imperfecto-extrano" style="--a:#ff6b6b;--b:#4d96ff" aria-labelledby="t-imperfecto">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/imperfecto-extrano.jpg" alt="Portada de Imperfecto extraño"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de Imperfecto extraño"><span>Imperfecto extraño</span><em>2017</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2017-04-21">21 de abril de 2017</time></p>
+            <h3 id="t-imperfecto">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/1xWHQFcS9qDf0cXX6NXcPK" target="_blank" rel="noopener noreferrer">Imperfecto extraño</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>Phil Vinall</li><li>Rock clásico de los 70</li><li>Gira Imperfecto Extraño</li><li>Disco conceptual</li>
+            </ul>
+            <p>Su sexto álbum, con 12 canciones pensadas como piezas de un mismo rompecabezas. El productor británico Phil Vinall le dio un aire de rock clásico de los años setenta, con teclados y sintetizadores retro y cintas grabadas en el estudio Testa, en Guanajuato. Para Luis Humberto, el título habla del ser humano y de cuánto puede crecer. La portada juega con un concepto bicolor y la banda lo llevó por más de 15 ciudades de México, además de grabar <em>En vivo desde el Auditorio Nacional</em>.</p>
+            <h4>Canciones</h4>
+            <ol class="pistas">
+              <li>Obertura</li><li>Celeste</li><li>En tu día</li><li>Tercer tipo</li><li>Luces de periferia</li><li>Detéstame</li>
+              <li>Nudo</li><li>El futuro</li><li>Y la esperanza</li><li>Amanéceme</li><li>Vida en el espejo</li><li>Desenlace</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Canciones</dt><dd>12</dd></div>
+              <div><dt>Sencillos</dt><dd>En tu día, Tercer tipo, Vida en el espejo, Y la esperanza</dd></div>
+              <div><dt>Producción</dt><dd>Phil Vinall</dd></div>
+              <div><dt>Videoclips</dt><dd>Con la participación de Benji Estrada</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ 2020 · PRÓXIMOS PRÓJIMOS ============ -->
+        <article class="album" id="proximos-projimos" style="--a:#00f5d4;--b:#9b5de5" aria-labelledby="t-proximos">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/proximos-projimos.jpg" alt="Portada de Próximos prójimos"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de Próximos prójimos"><span>Próximos prójimos</span><em>2020</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2020-09-27">27 de septiembre de 2020</time></p>
+            <h3 id="t-proximos">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/3Qy4pIdXakmjoCflfxIShw" target="_blank" rel="noopener noreferrer">Próximos prójimos</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>Álbum conceptual</li><li>Tecnología</li><li>Irrepetible (OCESA)</li><li>Pandemia</li>
+            </ul>
+            <p>Un álbum conceptual que rinde homenaje a los discos clásicos de ese estilo, con un sonido sofisticado y actual. Habla de lo que la sociedad enfrenta hoy, como la dependencia de los celulares, las computadoras y la tecnología. Arranca con un tema instrumental semiambiental y cierra con «Siempre tú» y «Dolores». Por la pandemia, lo presentaron completo, con sus 13 canciones, en un concierto por internet de la serie Irrepetible de OCESA, antes de subirlo a las plataformas.</p>
+            <h4>Canciones</h4>
+            <ol class="pistas">
+              <li>Próximos prójimos</li><li>Luz en las manos</li><li>Relámpago</li><li>Divergencia</li><li>La batalla</li>
+              <li>Extraños días de abril</li><li>El derrumbe</li><li>Secuaz</li><li>Desconfía</li><li>Adormecido</li>
+              <li>Alter ego</li><li>Siempre tú</li><li>Dolores</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Canciones</dt><dd>13</dd></div>
+              <div><dt>Sencillos</dt><dd>Relámpago, Siempre tú, Divergencia, Alter ego, Dolores</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ 2023 · NOCHES DE SALÓN ============ -->
+        <article class="album" id="noches-de-salon" style="--a:#e9c46a;--b:#9d0208" aria-labelledby="t-noches">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/noches-de-salon.jpg" alt="Portada de Noches de salón"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de Noches de salón"><span>Noches de salón</span><em>2023</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2023-09-01">1 de septiembre de 2023</time></p>
+            <h3 id="t-noches">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/3WxYCeKBo87Z0KeNepcSK8" target="_blank" rel="noopener noreferrer">Noches de salón</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>Primer disco en vivo</li><li>Bolero</li><li>Danzón</li><li>Salón Los Ángeles</li>
+            </ul>
+            <p>Su primer álbum en vivo, grabado en el Salón Los Ángeles, uno de los salones de baile más antiguos de la Ciudad de México. Rafael Navejas fue director musical y, junto a ocho músicos en escena, dio a las canciones arreglos con sonidos de los años cuarenta y cincuenta: bolero, son cubano y danzón. Mezcla temas conocidos con estrenos. Salió el 31 de agosto de 2023 en YouTube y el 1 de septiembre en plataformas, y la gira que lo siguió superó las 60 fechas.</p>
+            <h4>Canciones destacadas</h4>
+            <!-- COMPLETA esta lista con el tracklist de Spotify si quieres todas las canciones -->
+            <ol class="pistas">
+              <li>Somos ajenos</li><li>Manía cardíaca</li><li>El derrumbe</li><li>De nadie</li><li>El vacío (nueva)</li><li>Necrópolis (nueva)</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Grabado en</dt><dd>Salón Los Ángeles, Ciudad de México</dd></div>
+              <div><dt>Dirección musical</dt><dd>Rafael Navejas</dd></div>
+              <div><dt>Gira</dt><dd>Más de 60 fechas</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ 2026 · DAÑOS LUZ ============ -->
+        <article class="album" id="danos-luz" style="--a:#ffe66d;--b:#ff6b35" aria-labelledby="t-danos">
+          <figure class="portada">
+            <!-- REEMPLAZA este bloque por: <img src="portadas/danos-luz.jpg" alt="Portada de Daños Luz"> -->
+            <div class="arte" role="img" aria-label="Arte de marcador de posición de Daños Luz"><span>Daños Luz</span><em>2026</em></div>
+           
+          </figure>
+          <div class="album-cuerpo">
+            <p class="album-meta"><time datetime="2026-03-12">12 de marzo de 2026</time></p>
+            <h3 id="t-danos">
+              <!-- Enlace de Spotify del álbum -->
+              <a class="enlace-spotify" href="https://open.spotify.com/album/3J0M1SWFaen1h5Uiq9zdAy" target="_blank" rel="noopener noreferrer">Daños Luz</a>
+            </h3>
+            <ul class="etiquetas" aria-label="Etiquetas del álbum">
+              <li>Noveno álbum de estudio</li><li>Vive Latino 2026</li><li>Daños Luz Tour</li>
+            </ul>
+            <p>El noveno álbum de estudio y el más reciente, con 11 canciones. La mayor parte la escribió Luis Humberto Navejas, con participación de Julián, y los tres hermanos lo produjeron. Casi todo el disco se fue conociendo antes como sencillos, entre ellos «Vínculo», «Juguete», «Angustias», «La diferencia» y «Marioneta». Salió el 12 de marzo de 2026 y dos días después lo presentaron en el Vive Latino, con la gira Daños Luz Tour 2026 por todo México.</p>
+            <h4>Canciones</h4>
+            <ol class="pistas">
+              <li>Desfaces</li><li>Angustias</li><li>Vida en el espectro</li><li>Errante</li><li>La diferencia</li><li>Vivos</li>
+              <li>Vínculo</li><li>Juguete</li><li>Mente adolescente</li><li>Marioneta</li><li>El regalo</li>
+            </ol>
+            <dl class="datos ficha-album">
+              <div><dt>Canciones</dt><dd>11</dd></div>
+              <div><dt>Sencillos</dt><dd>Vínculo, Juguete, Angustias, La diferencia, Marioneta y otros</dd></div>
+              <div><dt>Producción</dt><dd>Rafael, Luis Humberto y Julián Navejas</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ============ EPs ============ -->
+        <h3 class="subtitulo-seccion">EP y sencillos</h3>
+
+        <div class="eps">
+          <article class="ep" style="--c:#ef476f">
+            <h4>
+              <a class="enlace-spotify" href="https://www.youtube.com/watch?v=NBodU1T3K4g&list=PLC_8KOvnyZiPt8-zjBzOCBPMqfAFfgzCo" target="_blank" rel="noopener noreferrer">
+                Manía cardiaca (EP)
+              </a>
+            </h4>
+            <p>
+              <time datetime="2007">2007</time>. Su primer EP independiente, que se vendía solo en los conciertos y los dio a conocer en el rock indie de México.
+            </p>
+          </article>
+
+          <article class="ep" style="--c:#26c6b0">
+            <h4>
+              <a class="enlace-spotify" href="https://open.spotify.com/intl-es/album/75878sUYPLJHQGHokmmlRi?si=2949d8bc71244cd8" target="_blank" rel="noopener noreferrer">
+                Ambrosía (EP)
+              </a>
+            </h4>
+            <p>
+              <time datetime="2021-10-27">27 de octubre de 2021</time>. Cuatro temas grabados en inglés, un homenaje al rock que los formó y al sur de California.
+            </p>
+            <ol>
+              <li>Delorean</li>
+              <li>Crash</li>
+              <li>Ambrosía</li>
+              <li>Upgrade</li>
+            </ol>
+          </article>
+
+          <article class="ep" style="--c:#ffd166">
+            <h4>
+              <a class="enlace-spotify" href="https://open.spotify.com/intl-es/album/0S5YB78Krxl4RduNXwdQbT?si=a3sapUurQdGIqJaQWDmOrA" target="_blank" rel="noopener noreferrer">
+                Torna noches de salón (EP)
+              </a>
+            </h4>
+            <p>
+              <time datetime="2024">2024</time>. Versiones acústicas de tres canciones y un tema nuevo.
+            </p>
+            <ol>
+              <li>Divergencia</li>
+              <li>Vida en el espejo</li>
+              <li>Secuaz</li>
+              <li>Danzón nereidas</li>
+            </ol>
+          </article>
+
+          <article class="ep ancho" style="--c:#c77dff">
+          <h4>Sencillos</h4>
+          <p>Canciones que se publicaron como sencillo, ordenadas por año. Casi todas viven también dentro de un álbum.</p>
+
+          <ul class="sencillos">
+            <li><a class="enlace-spotify" href="https://open.spotify.com/track/3Scge4jTmj6bI5G8dCSLdU" target="_blank" rel="noopener noreferrer">Tu yugular dulce hogar</a> <small>2011</small></li>
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/10UJpb0s8MkjPVqL472Lgc" target="_blank" rel="noopener noreferrer">Amenaza</a> <small>2011</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/1Z6NUe88dVXBDpWiWpSpie" target="_blank" rel="noopener noreferrer">Somos ajenos</a> <small>2012</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/2E6AHiK6YpfW64VnUnVPBv" target="_blank" rel="noopener noreferrer">Este invierno</a> <small>2013</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/6RnoyMurl85ovY0Luy4VpZ" target="_blank" rel="noopener noreferrer">Hematófago</a> <small>2014</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/6iwT75hknvAWo3GpKDubIP" target="_blank" rel="noopener noreferrer">Tras la puerta</a> <small>2014</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/1hsvFo7ECcXn617aFGqSfG" target="_blank" rel="noopener noreferrer">En tu día</a> <small>2017</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/3D0z3xuvOTdGedTp8sMSk6" target="_blank" rel="noopener noreferrer">Relámpago</a> <small>2019</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/78N0HNsU9h7il0mKU7zhIS" target="_blank" rel="noopener noreferrer">Siempre tú</a> <small>2019</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/120Zc8SLTwItHHWnXyYVhG" target="_blank" rel="noopener noreferrer">Delorean</a> <small>2021</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/2JXWGqA83AR8QDrYHnWabc" target="_blank" rel="noopener noreferrer">Vínculo</a> <small>2025</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/1AP0YC81s5Gxk3wUIoQE5Q" target="_blank" rel="noopener noreferrer">Juguete</a> <small>2025</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/50oUpA33hNEsaZl9AiLXRL" target="_blank" rel="noopener noreferrer">Angustias</a> <small>2025</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/3kII7smb04nI2T2vnj5eZr" target="_blank" rel="noopener noreferrer">La diferencia</a> <small>2025</small></li>
+
+          <li><a class="enlace-spotify" href="https://open.spotify.com/track/1zivYKdOBhZQ6CgILdv0Ab" target="_blank" rel="noopener noreferrer">Marioneta</a> <small>2026</small></li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+<!-- ==================== COLABORACIONES ==================== -->
+
+<section id="colaboraciones" aria-labelledby="titulo-colab">
+  <div class="contenedor">
+    <h2 id="titulo-colab">Colaboraciones y otras apariciones</h2>
+    <p>Enjambre casi no invita a otros artistas en sus discos, pero sí se abre a hacerlo en conciertos y sesiones. Estas son las que más se recuerdan.</p>
+
+```
+<div class="tabla-envuelta">
+  <table>
+    <caption>Canciones en colaboración</caption>
+    <thead>
+      <tr>
+        <th scope="col">Canción</th>
+        <th scope="col">Con quién</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Año</th>
+        <th scope="col">Spotify</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Impacto</th>
+        <td>Denise Gutiérrez (Hello Seahorse! y Lo Blondo)</td>
+        <td><span class="tag-tipo">Dueto</span></td>
+        <td>2008</td>
+        <td>
+          <a class="enlace-spotify" href="https://open.spotify.com/track/5agpMV7rvg7Hf8IiX5kQXe" target="_blank" rel="noopener noreferrer">
+            Escuchar
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">Estás dormida</th>
+        <td>Alejandro Marcovich (Caifanes)</td>
+        <td><span class="tag-tipo en-vivo">En vivo</span></td>
+        <td>2011</td>
+        <td>
+          <a class="enlace-spotify" href="https://open.spotify.com/track/1oFrUg1f0lQsdACMAIH2Xx" target="_blank" rel="noopener noreferrer">
+            Escuchar
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">Encantan</th>
+        <td>Estelares</td>
+        <td><span class="tag-tipo">Dueto</span></td>
+        <td>Sin confirmar</td>
+        <td>
+          <a class="enlace-spotify" href="https://open.spotify.com/track/4GrxCRx9CbGqTGqXqUfG8X" target="_blank" rel="noopener noreferrer">
+            Escuchar
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">Hematófago (feat. Girls Go Ska)</th>
+        <td>Girls Go Ska</td>
+        <td><span class="tag-tipo">Sesión</span></td>
+        <td>2020</td>
+        <td>
+          <span>—</span>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">Tercer tipo</th>
+        <td>Lori Meyers</td>
+        <td><span class="tag-tipo">Versión</span></td>
+        <td>2020</td>
+        <td>
+          <a class="enlace-spotify" href="https://open.spotify.com/track/2L8SXgq4KZZs2Deh816Yp1" target="_blank" rel="noopener noreferrer">
+            Escuchar
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">Algo me dice</th>
+        <td>No Te Va a Gustar</td>
+        <td><span class="tag-tipo">Dueto</span></td>
+        <td>2023</td>
+        <td>
+          <a class="enlace-spotify" href="https://open.spotify.com/track/78q1JXZIlanqIhzvBotVfM" target="_blank" rel="noopener noreferrer">
+            Escuchar
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">El ordinario</th>
+        <td>Banda sonora de <em>El más buscado</em></td>
+        <td><span class="tag-tipo cine">Cine</span></td>
+        <td>2014</td>
+        <td>
+          <a class="enlace-spotify" href="https://open.spotify.com/track/29xjdZMdDzHY5WGNwrIv4d" target="_blank" rel="noopener noreferrer">
+            Escuchar
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">Delorean</th>
+        <td>Sencillo en inglés dedicado al auto de <em>Volver al futuro</em></td>
+        <td><span class="tag-tipo sencillo">Sencillo</span></td>
+        <td>2021</td>
+        <td>
+          <a class="enlace-spotify" href="https://open.spotify.com/track/120Zc8SLTwItHHWnXyYVhG" target="_blank" rel="noopener noreferrer">
+            Escuchar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+  </div>
+</section>
+
+
+    <!-- ==================== CRONOLOGÍA ==================== -->
+    <section id="cronologia" aria-labelledby="titulo-crono">
+      <div class="contenedor">
+        <h2 id="titulo-crono">Cronología</h2>
+        <p>De una preparatoria en Fresnillo a los escenarios más grandes del país.</p>
+
+        <ol class="cronologia" id="linea-tiempo">
+          <li class="hito"><time datetime="1994">1994</time><h3>Los cuatro fantásticos</h3><p>Luis Humberto, Rafael y César Sánchez forman su primera banda de punk en Fresnillo.</p></li>
+          <li class="hito"><time datetime="1998">1998</time><h3>Viaje a California</h3><p>La familia Navejas emigra a Estados Unidos y el grupo se detiene.</p></li>
+          <li class="hito"><time datetime="2001">2001</time><h3>Nace Enjambre</h3><p>Los hermanos y su primo Romeo fundan la banda en Santa Ana, California.</p></li>
+          <li class="hito"><time datetime="2005">2005</time><h3>Consuelo en domingo</h3><p>Sale su disco debut con Oso Records y llegan las nominaciones a Premios Lo Nuestro.</p></li>
+          <li class="hito"><time datetime="2007">2007</time><h3>Nueva alineación</h3><p>Entran Julián, Ángel y Javier. Publican el EP Manía cardiaca.</p></li>
+          <li class="hito"><time datetime="2008">2008</time><h3>El segundo es felino</h3><p>El disco que los vuelve populares. Se mudan a la Ciudad de México.</p></li>
+          <li class="hito"><time datetime="2009">2009</time><h3>Vive Latino y EMI</h3><p>Tocan por primera vez en el Vive Latino y firman con EMI a finales de año.</p></li>
+          <li class="hito"><time datetime="2010">2010</time><h3>Daltónico</h3><p>Llega el éxito nacional, el Teatro Metropólitan y la Gira Daltónica.</p></li>
+          <li class="hito"><time datetime="2012">2012</time><h3>Los huéspedes del orbe</h3><p>Grabado en Sonic Ranch, se presenta en el Auditorio Nacional el 30 de noviembre.</p></li>
+          <li class="hito"><time datetime="2014">2014</time><h3>Proaño</h3><p>Un disco que lleva el nombre de una mina de Fresnillo y se lanza con una campaña de chocolates.</p></li>
+          <li class="hito"><time datetime="2015">2015</time><h3>Palacio de los Deportes</h3><p>Concierto multitudinario y versión deluxe de Proaño.</p></li>
+          <li class="hito"><time datetime="2017">2017</time><h3>Imperfecto extraño</h3><p>Rock clásico de los setenta producido por Phil Vinall y gira por más de 15 ciudades.</p></li>
+          <li class="hito"><time datetime="2020">2020</time><h3>Próximos prójimos</h3><p>Estreno en concierto por internet durante la pandemia.</p></li>
+          <li class="hito"><time datetime="2021">2021</time><h3>Cambio de guitarrista y Ambrosía</h3><p>Javier Mejía se va y la banda lanza su EP en inglés.</p></li>
+          <li class="hito"><time datetime="2022">2022</time><h3>Reconocimiento del Senado</h3><p>El Senado de México premia su trayectoria musical.</p></li>
+          <li class="hito"><time datetime="2023">2023</time><h3>Noches de salón</h3><p>Su primer disco en vivo y una gira de más de 60 fechas.</p></li>
+          <li class="hito"><time datetime="2024">2024</time><h3>Embajadores culturales</h3><p>El Congreso de Zacatecas los nombra embajadores culturales del estado. Sale Torna noches de salón.</p></li>
+          <li class="hito"><time datetime="2025">2025</time><h3>Regreso al sonido eléctrico</h3><p>Salen Vínculo, Juguete y Angustias, y la gira Daños Luz abre con dos Palacios de los Deportes llenos.</p></li>
+          <li class="hito"><time datetime="2026">2026</time><h3>Daños Luz</h3><p>El 12 de marzo sale su noveno álbum de estudio, con 11 canciones, y lo presentan en el Vive Latino.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==================== RECONOCIMIENTOS ==================== -->
+    <section id="reconocimientos" aria-labelledby="titulo-reco">
+      <div class="contenedor">
+        <h2 id="titulo-reco">Reconocimientos</h2>
+
+        <div class="tabla-envuelta">
+          <table>
+            <caption>Premios, nominaciones y certificaciones</caption>
+            <thead><tr><th scope="col">Año</th><th scope="col">Reconocimiento</th><th scope="col">Detalle</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">2006</th><td>Premios Lo Nuestro</td><td>Nominados a canción del año («Biografía»), artista del año y álbum del año.</td></tr>
+              <tr><th scope="row">2010</th><td>Indie-O Music Awards</td><td>Productor nuevo del año para Julián Navejas por <em>El segundo es felino</em>.</td></tr>
+              <tr><th scope="row">2011</th><td>Indie-O Music Awards</td><td>Banda del año y premio de la gente.</td></tr>
+              <tr><th scope="row">2011</th><td>Premios Telehit</td><td>Mejor banda alternativa.</td></tr>
+              <tr><th scope="row">2015</th><td>MTV Europe Music Awards</td><td>Nominados a mejor artista del norte de Latinoamérica.</td></tr>
+              <tr><th scope="row">Varios</th><td>AMPROFON</td><td>Doble oro para <em>Daltónico</em>, platino para <em>Los huéspedes del orbe</em> y doble platino para <em>Proaño</em>.</td></tr>
+              <tr><th scope="row">2022</th><td>Senado de México</td><td>Reconocimiento a su trayectoria musical.</td></tr>
+              <tr><th scope="row">2024</th><td>Congreso del Estado de Zacatecas</td><td>Nombrados embajadores culturales de Zacatecas.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subtitulo-seccion">Curiosidades</h3>
+        <details>
+          <summary>¿Por qué se llaman Enjambre?</summary>
+          <div class="contenido-detalle"><p>El nombre evoca un montón de abejas juntas y viene del apellido de los integrantes: Navejas. Por eso la abeja y el panal aparecen en toda esta página.</p></div>
+        </details>
+        <details>
+          <summary>La banda de la Mujer Invisible</summary>
+          <div class="contenido-detalle"><p>Su primer grupo, Los cuatro fantásticos, tenía tres integrantes reales y un cuarto imaginario: la Mujer Invisible, personaje de cómic. Luis Humberto era fan de las historietas.</p></div>
+        </details>
+        <details>
+          <summary>Cómics y luchadores en el arte de sus discos</summary>
+          <div class="contenido-detalle"><p>Para <em>Los huéspedes del orbe</em>, Rafael y Luis Humberto hicieron el arte visual con inspiración en Kalimán, Blue Demon, El libro vaquero y The Hardy Boys.</p></div>
+        </details>
+        <details>
+          <summary>Un disco desbloqueado con chocolates</summary>
+          <div class="contenido-detalle"><p>Para lanzar <em>Proaño</em>, se aliaron con Crunch de Nestlé. Cada envoltura tenía un código que sumaba un kilobyte, y entre todos los fans debían juntar 700 mil para desbloquear las canciones.</p></div>
+        </details>
+        <details>
+          <summary>Una canción para un auto de película</summary>
+          <div class="contenido-detalle"><p>«Delorean», de 2021, está dedicada al auto de <em>Volver al futuro</em>, y su video hace guiños a esa trilogía. Es una de las pocas canciones de la banda completamente en inglés.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==================== ZACATECAS ==================== -->
+    <section id="zacatecas" aria-labelledby="titulo-zac">
+      <div class="contenedor">
+        <h2 id="titulo-zac">Raíces zacatecanas</h2>
+        <p>Aunque la banda nació en California, su identidad se forjó en Fresnillo, Zacatecas. La tierra aparece en sus discos, sus giras y sus reconocimientos.</p>
+
+        <div class="zacatecas-grid">
+          <article class="tarjeta">
+            <h3>Fresnillo, el punto de partida</h3>
+            <p>Ahí, en la preparatoria, formaron Los cuatro fantásticos en 1994. Ángel Sánchez, su baterista, es también amigo de toda la vida en Fresnillo.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Mina Proaño</h3>
+            <p>Su quinto álbum, <em>Proaño</em>, toma el nombre de esta mina de Fresnillo, y una de sus canciones se llama «Calzada Proaño».</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Teatro del Pueblo</h3>
+            <p>Antes de presentar <em>Los huéspedes del orbe</em> en el Auditorio Nacional, tocaron en el Teatro del Pueblo de Fresnillo.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Embajadores culturales</h3>
+            <p>En 2024, el Congreso del Estado de Zacatecas nombró a los integrantes embajadores culturales del estado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PIE ==================== -->
+  <footer class="pie">
+    <div class="contenedor">
+      <div class="pie-grid">
+        <div>
+          <h2>Enjambre</h2>
+          <p>Página hecha como proyecto escolar. No es un sitio oficial de la banda.</p>
+        </div>
+        <nav aria-label="Secciones">
+          <h3>Secciones</h3>
+          <ul>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#integrantes">Integrantes</a></li>
+            <li><a href="#discos">Discos</a></li>
+            <li><a href="#colaboraciones">Colaboraciones</a></li>
+            <li><a href="#cronologia">Cronología</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3>Fuentes</h3>
+          <ul>
+            <li>Wikipedia, artículo «Enjambre (banda)»</li>
+            <li>Spotify y Letras.com, listas de canciones</li>
+            <li><a href="https://open.spotify.com/intl-es/artist/1ZdhAl62G6ZlEKqIwUAfZR" target="_blank" rel="noopener noreferrer">Enjambre en Spotify</a></li>
+            <li><a href="https://www.enjambremusica.com/" target="_blank" rel="noopener noreferrer">Sitio oficial de la banda</a></li>
+          </ul>
+        </div>
+      </div>
+      <small>&copy; 2026. Pagina Hecha por Braulio Torres. Los nombres, discos y canciones pertenecen a sus autores y a Universal Music México.</small>
+    </div>
+  </footer>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+  <button class="volver" id="volver" aria-label="Volver arriba">&uarr;</button>
+
+  <!-- ============================================================
+       JAVASCRIPT: enjambre, navegación y animaciones al hacer scroll
+       ============================================================ -->
+  <script>
+    (() => {
+      "use strict";
+      const reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      /* ---------- 1. ENJAMBRE DE ABEJAS EN EL HERO ---------- */
+      const canvas = document.getElementById("enjambre-canvas");
+      const ctx = canvas.getContext("2d");
+      let w = 0, h = 0, dpr = 1, t = 0, visible = true, corriendo = false;
+      const abejas = [];
+      const puntero = { x: 0, y: 0, activo: false };
+
+      function crearAbeja() {
+        return {
+          x: Math.random() * w, y: Math.random() * h, vx: 0, vy: 0,
+          tam: 3 + Math.random() * 2.6,
+          orbita: 30 + Math.random() * 150,
+          ang: Math.random() * Math.PI * 2,
+          vel: .006 + Math.random() * .016,
+          fase: Math.random() * Math.PI * 2
+        };
+      }
+
+      function ajustar() {
+        const r = canvas.getBoundingClientRect();
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = r.width; h = r.height;
+        canvas.width = w * dpr; canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const n = Math.round(Math.min(90, Math.max(34, w / 15)));
+        while (abejas.length < n) abejas.push(crearAbeja());
+        abejas.length = n;
+        if (reducir) { for (let i = 0; i < 240; i++) mover(); dibujar(); }
+      }
+
+      function objetivo() {
+        if (puntero.activo) return { x: puntero.x, y: puntero.y };
+        return { x: w * .5 + Math.cos(t * .0004) * w * .28, y: h * .48 + Math.sin(t * .0006) * h * .2 };
+      }
+
+      function mover() {
+        t += 16;
+        const o = objetivo();
+        for (const b of abejas) {
+          b.ang += b.vel;
+          const dx = o.x + Math.cos(b.ang) * b.orbita - b.x;
+          const dy = o.y + Math.sin(b.ang * 1.3) * b.orbita * .6 - b.y;
+          b.vx = (b.vx + dx * .0022 + (Math.random() - .5) * .35) * .95;
+          b.vy = (b.vy + dy * .0022 + (Math.random() - .5) * .35) * .95;
+          b.x += b.vx; b.y += b.vy;
+        }
+      }
+
+      function dibujar() {
+        ctx.clearRect(0, 0, w, h);
+        for (const b of abejas) {
+          const rumbo = Math.atan2(b.vy, b.vx);
+          const aleteo = Math.sin(t * .06 + b.fase) * .55 + .75;
+          ctx.save();
+          ctx.translate(b.x, b.y);
+          ctx.rotate(rumbo);
+          // alas
+          ctx.fillStyle = "rgba(247, 238, 220, .55)";
+          ctx.beginPath(); ctx.ellipse(-b.tam * .2, -b.tam * .9, b.tam * .9, b.tam * .5 * aleteo, -.5, 0, 6.283); ctx.fill();
+          ctx.beginPath(); ctx.ellipse(-b.tam * .2, b.tam * .9, b.tam * .9, b.tam * .5 * aleteo, .5, 0, 6.283); ctx.fill();
+          // cuerpo
+          ctx.fillStyle = "#f4a81d";
+          ctx.beginPath(); ctx.ellipse(0, 0, b.tam * 1.3, b.tam * .8, 0, 0, 6.283); ctx.fill();
+          // franjas
+          ctx.strokeStyle = "#151022"; ctx.lineWidth = b.tam * .38;
+          ctx.beginPath(); ctx.moveTo(-b.tam * .3, -b.tam * .7); ctx.lineTo(-b.tam * .3, b.tam * .7);
+          ctx.moveTo(b.tam * .45, -b.tam * .55); ctx.lineTo(b.tam * .45, b.tam * .55); ctx.stroke();
+          ctx.restore();
+        }
+      }
+
+      function ciclo() {
+        if (!visible || document.hidden || reducir) { corriendo = false; return; }
+        mover(); dibujar();
+        requestAnimationFrame(ciclo);
+      }
+      function arrancar() { if (!corriendo && !reducir) { corriendo = true; requestAnimationFrame(ciclo); } }
+
+      const hero = document.getElementById("inicio");
+      function moverPuntero(e) {
+        const r = canvas.getBoundingClientRect();
+        puntero.x = e.clientX - r.left; puntero.y = e.clientY - r.top; puntero.activo = true;
+      }
+      hero.addEventListener("pointermove", moverPuntero);
+      hero.addEventListener("pointerdown", (e) => {
+        moverPuntero(e);
+        for (const b of abejas) { // dispersar al hacer clic
+          const ang = Math.atan2(b.y - puntero.y, b.x - puntero.x);
+          b.vx += Math.cos(ang) * (6 + Math.random() * 6);
+          b.vy += Math.sin(ang) * (6 + Math.random() * 6);
+        }
+      });
+      hero.addEventListener("pointerleave", () => { puntero.activo = false; });
+      window.addEventListener("resize", ajustar);
+      document.addEventListener("visibilitychange", arrancar);
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) arrancar(); }).observe(hero);
+      ajustar(); arrancar();
+
+      /* ---------- 2. ENCABEZADO, PROGRESO Y BOTÓN "VOLVER" ---------- */
+      const encabezado = document.getElementById("encabezado");
+      const barra = document.getElementById("barra-progreso");
+      const volver = document.getElementById("volver");
+      const lineaTiempo = document.getElementById("linea-tiempo");
+
+      function alHacerScroll() {
+        const y = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        encabezado.classList.toggle("compacto", y > 40);
+        barra.style.width = (total > 0 ? (y / total) * 100 : 0) + "%";
+        volver.classList.toggle("visible", y > 700);
+        // la línea de la cronología crece con el scroll
+        const r = lineaTiempo.getBoundingClientRect();
+        const avance = (window.innerHeight * .6 - r.top) / r.height;
+        lineaTiempo.style.setProperty("--prog", Math.min(1, Math.max(0, avance)).toFixed(3));
+      }
+      window.addEventListener("scroll", alHacerScroll, { passive: true });
+      alHacerScroll();
+      volver.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reducir ? "auto" : "smooth" }));
+
+      /* ---------- 3. MENÚ MÓVIL ---------- */
+      const botonMenu = document.getElementById("boton-menu");
+      const menu = document.getElementById("menu");
+      botonMenu.addEventListener("click", () => {
+        const abierto = menu.classList.toggle("abierto");
+        botonMenu.setAttribute("aria-expanded", abierto);
+      });
+      menu.addEventListener("click", (e) => {
+        if (e.target.closest("a")) { menu.classList.remove("abierto"); botonMenu.setAttribute("aria-expanded", "false"); }
+      });
+
+      /* ---------- 4. ENLACE ACTIVO EN LA NAVEGACIÓN ---------- */
+      const enlaces = [...menu.querySelectorAll("a")];
+      const secciones = enlaces.map(a => document.querySelector(a.getAttribute("href")));
+      const obsSeccion = new IntersectionObserver((entradas) => {
+        entradas.forEach(en => {
+          if (en.isIntersecting) {
+            enlaces.forEach(a => a.classList.toggle("activo", a.getAttribute("href") === "#" + en.target.id));
+          }
+        });
+      }, { rootMargin: "-45% 0px -50% 0px" });
+      secciones.forEach(s => s && obsSeccion.observe(s));
+
+      /* ---------- 5. APARICIÓN DE ÁLBUMES E HITOS ---------- */
+      const obsAparicion = new IntersectionObserver((entradas) => {
+        entradas.forEach(en => { if (en.isIntersecting) { en.target.classList.add("visible"); obsAparicion.unobserve(en.target); } });
+      }, { threshold: .12 });
+      document.querySelectorAll(".album, .hito").forEach(el => obsAparicion.observe(el));
+
+      /* ---------- 6. CONTADORES ANIMADOS ---------- */
+      const obsCifras = new IntersectionObserver((entradas) => {
+        entradas.forEach(en => {
+          if (!en.isIntersecting) return;
+          const el = en.target, meta = +el.dataset.meta;
+          obsCifras.unobserve(el);
+          if (reducir) { el.textContent = meta; return; }
+          const inicio = performance.now(), dur = 1400;
+          (function paso(ahora) {
+            const p = Math.min(1, (ahora - inicio) / dur);
+            el.textContent = Math.round(meta * (1 - Math.pow(1 - p, 3)));
+            if (p < 1) requestAnimationFrame(paso);
+          })(inicio);
+        });
+      }, { threshold: .6 });
+      document.querySelectorAll("[data-meta]").forEach(el => obsCifras.observe(el));
+
+      /* ---------- 7. CANCIÓN ALEATORIA ---------- */
+      // Reúne todas las canciones de la página (una sola vez cada una).
+      // Si en algún <li> agregas data-spotify="https://open.spotify.com/track/...",
+      // se abre esa canción directo. Si no, abre la búsqueda en Spotify.
+      const btnAzar = document.getElementById("btn-aleatoria");
+      const aviso = document.getElementById("aviso");
+      const limpiar = (t) => t.replace(/\s*\(.*?\)/g, "").replace(/\s+/g, " ").trim();
+
+      function reunirCanciones() {
+        const mapa = new Map();
+        const agregar = (titulo, disco, url) => {
+          titulo = limpiar(titulo);
+          const clave = titulo.toLowerCase();
+          if (titulo && !mapa.has(clave)) mapa.set(clave, { titulo, disco, url: url || null });
+        };
+        document.querySelectorAll(".album").forEach(al => {
+          const disco = al.querySelector("h3").textContent.trim();
+          al.querySelectorAll(".pistas li").forEach(li => agregar(li.textContent, disco, li.dataset.spotify));
+        });
+        document.querySelectorAll(".ep").forEach(ep => {
+          const disco = ep.querySelector("h4").textContent.replace(/\(EP\)/, "").trim();
+          ep.querySelectorAll("ol li").forEach(li => agregar(li.textContent, disco, li.dataset.spotify));
+          ep.querySelectorAll(".sencillos li").forEach(li => agregar(li.querySelector("a").textContent, "Sencillos", li.dataset.spotify));
+        });
+        return [...mapa.values()];
+      }
+
+      const canciones = reunirCanciones();
+      let ultima = null, temporizador;
+
+      btnAzar.addEventListener("click", () => {
+        let elegida;
+        do { elegida = canciones[Math.floor(Math.random() * canciones.length)]; }
+        while (canciones.length > 1 && elegida === ultima);
+        ultima = elegida;
+
+        const url = elegida.url || "https://open.spotify.com/search/" + encodeURIComponent(elegida.titulo + " Enjambre");
+        window.open(url, "_blank", "noopener");
+
+        aviso.textContent = "Te tocó «" + elegida.titulo + "», de " + elegida.disco + ". Abriendo Spotify.";
+        aviso.classList.add("visible");
+        clearTimeout(temporizador);
+        temporizador = setTimeout(() => aviso.classList.remove("visible"), 5000);
+      });
+    })();
+  </script>
+</body>
+</html>
