@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enjambre | Entrar</title>
+<meta name="description" content="Inicia sesión para entrar al sitio de Enjambre.">
+<meta name="theme-color" content="#151022">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --tinta:#151022; --tinta-2:#1d1630; --panal:#2a2141;
+    --ambar:#f4a81d; --miel:#ffd166; --rosa:#ef476f; --turquesa:#26c6b0;
+    --crema:#f7eedc; --suave:#cdc4dd; --linea:rgba(247,238,220,.14);
+    --radio:16px;
+    --display:"Bowlby One","Arial Black",Impact,sans-serif;
+    --texto:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:var(--texto); color:var(--crema); background:var(--tinta);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0 34L0 84V50m56 0v34L28 100' fill='none' stroke='%23ffffff' stroke-opacity='.05'/%3E%3C/svg%3E");
+    display:grid; place-items:center; padding:2.5rem 1.25rem; line-height:1.55;
+    position:relative; overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-1;
+    background:
+      radial-gradient(55% 45% at 15% 15%, rgba(239,71,111,.26), transparent 70%),
+      radial-gradient(50% 50% at 88% 82%, rgba(38,198,176,.20), transparent 70%),
+      radial-gradient(45% 35% at 60% 40%, rgba(244,168,29,.16), transparent 70%);
+  }
+  a{color:var(--miel)}
+  :focus-visible{outline:3px solid var(--miel); outline-offset:3px; border-radius:6px}
+
+  .envoltura{
+    width:min(920px, 100%); display:grid; grid-template-columns: 1.05fr 1fr;
+    background:var(--tinta-2); border:1px solid var(--linea); border-radius:28px;
+    overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.5);
+  }
+  @media (max-width:760px){ .envoltura{ grid-template-columns:1fr; } }
+
+  /* --- Panel del panal --- */
+  .panal-lado{
+    position:relative; padding:2.6rem 2.2rem; display:flex; flex-direction:column; justify-content:space-between;
+    background:linear-gradient(160deg, var(--panal), var(--tinta));
+    border-right:1px solid var(--linea);
+  }
+  @media (max-width:760px){ .panal-lado{ border-right:0; border-bottom:1px solid var(--linea); padding:2.2rem 1.6rem 1.6rem; } }
+
+  .marca{ display:inline-flex; align-items:center; gap:.6rem; font-family:var(--display); font-size:1.3rem; text-decoration:none; color:var(--crema); }
+  .marca svg{ width:32px; height:32px; }
+
+  .panal-fondo{
+    --h:78px; margin:2rem 0; display:flex; flex-direction:column; align-items:flex-start; opacity:.9;
+  }
+  .panal-fondo .fila{ display:flex; }
+  .panal-fondo .fila + .fila{ margin-top:calc(var(--h) * -.2887 + 3px); }
+  .panal-fondo .fila.sangria{ margin-left:calc(var(--h) * .5 + 1px); }
+  .celda{
+    width:var(--h); height:calc(var(--h) * 1.1547); margin:0 1.5px;
+    clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    background:linear-gradient(160deg, var(--c1), var(--c2)); opacity:var(--op,.55);
+  }
+
+  .panal-lado h1{ font-family:var(--display); font-weight:400; font-size:clamp(1.9rem,4vw,2.5rem); color:var(--miel); margin:0 0 .5rem; line-height:1.15; }
+  .panal-lado p{ margin:0; max-width:32ch; color:var(--suave); font-size:.98rem; }
+
+  /* --- Formulario --- */
+  .form-lado{ padding:2.6rem 2.4rem; display:flex; flex-direction:column; gap:1.4rem; }
+  @media (max-width:760px){ .form-lado{ padding:2rem 1.6rem 2.2rem; } }
+
+  .form-lado h2{ font-family:var(--display); font-weight:400; font-size:1.6rem; margin:0; color:var(--crema); }
+  .form-lado .subtitulo{ margin:-.9rem 0 0; color:var(--suave); font-size:.94rem; }
+
+  form{ display:flex; flex-direction:column; gap:1.1rem; }
+  .campo{ display:flex; flex-direction:column; gap:.4rem; }
+  .campo label{ font-weight:800; font-size:.85rem; color:var(--miel); }
+
+  .caja-entrada{ position:relative; }
+  input[type="email"], input[type="password"], input[type="text"]{
+    width:100%; font:inherit; font-size:1rem; color:var(--crema);
+    background:rgba(247,238,220,.05); border:1.5px solid var(--linea); border-radius:12px;
+    padding:.8rem 2.7rem .8rem 1rem; transition:border-color .2s, background .2s;
+  }
+  input::placeholder{ color:rgba(205,196,221,.55); }
+  input:focus{ border-color:var(--ambar); background:rgba(247,238,220,.08); }
+  .campo.valido input{ border-color:var(--turquesa); }
+  .campo.invalido input{ border-color:var(--rosa); }
+
+  .marca-estado{
+    position:absolute; right:.8rem; top:50%; transform:translateY(-50%);
+    font-size:1.05rem; opacity:0; transition:opacity .2s;
+  }
+  .campo.valido .marca-estado, .campo.invalido .marca-estado{ opacity:1; }
+  .campo.valido .marca-estado::before{ content:"✓"; color:var(--turquesa); font-weight:800; }
+  .campo.invalido .marca-estado::before{ content:"!"; color:var(--rosa); font-weight:800; }
+
+  .ver-clave{
+    position:absolute; right:2.5rem; top:50%; transform:translateY(-50%);
+    background:none; border:0; color:var(--suave); font-size:.82rem; font-weight:800; cursor:pointer; padding:.2rem .3rem;
+  }
+  .ver-clave:hover{ color:var(--miel); }
+
+  .error-texto{ min-height:1.1em; font-size:.82rem; color:var(--rosa); font-weight:600; }
+
+  .requisitos{ list-style:none; margin:.1rem 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:.35rem .8rem; }
+  .requisitos li{ font-size:.82rem; color:var(--suave); display:flex; align-items:center; gap:.45rem; transition:color .2s; }
+  .requisitos li .hex-mini{
+    width:14px; height:16px; flex:none; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    background:var(--linea); transition:background .2s;
+  }
+  .requisitos li.ok{ color:var(--crema); }
+  .requisitos li.ok .hex-mini{ background:var(--turquesa); }
+
+  .boton{
+    position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    padding:.85rem 1.6rem; border-radius:999px; font-weight:800; font-size:1rem; font-family:inherit;
+    color:var(--tinta); background:var(--miel); border:2px solid var(--miel); cursor:pointer;
+    transition:transform .2s ease, opacity .2s, background .2s;
+  }
+  .boton::before{
+    content:""; position:absolute; inset:0; background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+    transform:translateX(-120%); transition:transform .6s ease;
+  }
+  .boton:hover:not(:disabled)::before{ transform:translateX(120%); }
+  .boton:hover:not(:disabled){ transform:translateY(-2px); }
+  .boton:disabled{ opacity:.55; cursor:not-allowed; }
+  .boton.secundario{ background:transparent; color:var(--crema); border-color:var(--linea); }
+  .boton.secundario:hover{ border-color:var(--crema); transform:translateY(-2px); }
+
+  .separador{ display:flex; align-items:center; gap:.8rem; color:var(--suave); font-size:.82rem; margin:.1rem 0; }
+  .separador::before, .separador::after{ content:""; flex:1; height:1px; background:var(--linea); }
+
+  .form-lado.tiembla{ animation:tiembla .4s ease; }
+  @keyframes tiembla{
+    10%,90%{ transform:translateX(-1px); } 20%,80%{ transform:translateX(2px); }
+    30%,50%,70%{ transform:translateX(-4px); } 40%,60%{ transform:translateX(4px); }
+  }
+
+  .avance{ display:flex; align-items:center; gap:.6rem; font-size:.9rem; color:var(--suave); }
+  .avance .giro{
+    width:16px; height:16px; border:2.5px solid var(--linea); border-top-color:var(--miel); border-radius:50%;
+    animation:girar .7s linear infinite;
+  }
+  @keyframes girar{ to{ transform:rotate(360deg); } }
+
+  .oculto{ display:none !important; }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="envoltura">
+
+    <div class="panal-lado">
+      <div>
+        <a class="marca" href="#" aria-label="Enjambre">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><polygon points="16,1 29,8.5 29,23.5 16,31 3,23.5 3,8.5" fill="#f4a81d"/><path d="M8 13h16M8 19h16" stroke="#151022" stroke-width="3"/></svg>
+          Enjambre
+        </a>
+
+        <div class="panal-fondo" aria-hidden="true">
+          <div class="fila">
+            <div class="celda" style="--c1:#c77dff;--c2:#5a189a;--op:.85"></div>
+            <div class="celda" style="--c1:#ff9f1c;--c2:#e71d36;--op:.55"></div>
+            <div class="celda" style="--c1:#06d6a0;--c2:#ffd166;--op:.7"></div>
+          </div>
+          <div class="fila sangria">
+            <div class="celda" style="--c1:#4cc9f0;--c2:#f72585;--op:.6"></div>
+            <div class="celda" style="--c1:#ffe66d;--c2:#ff6b35;--op:.9"></div>
+          </div>
+          <div class="fila">
+            <div class="celda" style="--c1:#e9c46a;--c2:#9d0208;--op:.5"></div>
+            <div class="celda" style="--c1:#00f5d4;--c2:#9b5de5;--op:.65"></div>
+            <div class="celda" style="--c1:#ff6b6b;--c2:#4d96ff;--op:.55"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h1>Bienvenido de vuelta al panal</h1>
+        <p>Historia, discografía completa y cronología de Enjambre te esperan del otro lado.</p>
+      </div>
+    </div>
+
+    <div class="form-lado" id="formLado">
+      <div>
+        <h2>Iniciar sesión</h2>
+        <p class="subtitulo">Página escolar de práctica — no se guarda ningún dato.</p>
+      </div>
+
+      <form id="formEntrar" novalidate>
+
+        <div class="campo" id="campoCorreo">
+          <label for="correo">Correo electrónico</label>
+          <div class="caja-entrada">
+            <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+            <span class="marca-estado" aria-hidden="true"></span>
+          </div>
+          <span class="error-texto" id="errorCorreo"></span>
+        </div>
+
+        <div class="campo" id="campoClave">
+          <label for="clave">Contraseña</label>
+          <div class="caja-entrada">
+            <input type="password" id="clave" name="clave" placeholder="Escribe tu contraseña" autocomplete="current-password" required>
+            <button type="button" class="ver-clave" id="verClave" aria-label="Mostrar contraseña">Ver</button>
+            <span class="marca-estado" aria-hidden="true"></span>
+          </div>
+
+          <ul class="requisitos" id="requisitos" aria-live="polite">
+            <li data-regla="longitud"><span class="hex-mini"></span>8+ caracteres</li>
+            <li data-regla="mayuscula"><span class="hex-mini"></span>Una mayúscula</li>
+            <li data-regla="minuscula"><span class="hex-mini"></span>Una minúscula</li>
+            <li data-regla="numero"><span class="hex-mini"></span>Un número</li>
+            <li data-regla="especial"><span class="hex-mini"></span>Un carácter especial</li>
+          </ul>
+        </div>
+
+        <button type="submit" class="boton" id="botonEntrar">Entrar</button>
+
+        <div class="avance oculto" id="avanceCarga">
+          <span class="giro" aria-hidden="true"></span>
+          <span>Entrando al panal…</span>
+        </div>
+      </form>
+
+      <div class="separador">o</div>
+
+      <button type="button" class="boton secundario" id="botonInvitado">Entrar como invitado</button>
+    </div>
+
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const DESTINO = "enjambre2.html";
+
+      const form = document.getElementById("formEntrar");
+      const formLado = document.getElementById("formLado");
+      const campoCorreo = document.getElementById("campoCorreo");
+      const campoClave = document.getElementById("campoClave");
+      const correo = document.getElementById("correo");
+      const clave = document.getElementById("clave");
+      const errorCorreo = document.getElementById("errorCorreo");
+      const requisitos = [...document.querySelectorAll("#requisitos li")];
+      const botonEntrar = document.getElementById("botonEntrar");
+      const botonInvitado = document.getElementById("botonInvitado");
+      const avanceCarga = document.getElementById("avanceCarga");
+      const verClave = document.getElementById("verClave");
+
+      const patronCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+      function reglasClave(valor) {
+        return {
+          longitud: valor.length >= 8,
+          mayuscula: /[A-Z]/.test(valor),
+          minuscula: /[a-z]/.test(valor),
+          numero: /[0-9]/.test(valor),
+          especial: /[^A-Za-z0-9]/.test(valor)
+        };
+      }
+
+      function validarCorreo() {
+        const valor = correo.value.trim();
+        if (!valor) {
+          campoCorreo.classList.remove("valido", "invalido");
+          errorCorreo.textContent = "";
+          return false;
+        }
+        const ok = patronCorreo.test(valor);
+        campoCorreo.classList.toggle("valido", ok);
+        campoCorreo.classList.toggle("invalido", !ok);
+        errorCorreo.textContent = ok ? "" : "Escribe un correo con formato válido, por ejemplo nombre@dominio.com";
+        return ok;
+      }
+
+      function validarClave() {
+        const valor = clave.value;
+        const estado = reglasClave(valor);
+        requisitos.forEach(li => li.classList.toggle("ok", estado[li.dataset.regla]));
+        const ok = Object.values(estado).every(Boolean);
+        campoClave.classList.toggle("valido", valor.length > 0 && ok);
+        campoClave.classList.toggle("invalido", valor.length > 0 && !ok);
+        return ok;
+      }
+
+      correo.addEventListener("input", validarCorreo);
+      clave.addEventListener("input", validarClave);
+
+      verClave.addEventListener("click", () => {
+        const mostrar = clave.type === "password";
+        clave.type = mostrar ? "text" : "password";
+        verClave.textContent = mostrar ? "Ocultar" : "Ver";
+      });
+
+      function entrar() {
+        botonEntrar.disabled = true;
+        botonInvitado.disabled = true;
+        form.querySelector("button[type=submit]").classList.add("oculto");
+        avanceCarga.classList.remove("oculto");
+        setTimeout(() => { window.location.href = DESTINO; }, 700);
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const correoOk = validarCorreo();
+        const claveOk = validarClave();
+
+        if (!correo.value.trim()) {
+          campoCorreo.classList.add("invalido");
+          errorCorreo.textContent = "Escribe tu correo electrónico.";
+        }
+
+        if (correoOk && claveOk) {
+          entrar();
+        } else {
+          formLado.classList.remove("tiembla");
+          void formLado.offsetWidth;
+          formLado.classList.add("tiembla");
+        }
+      });
+
+      botonInvitado.addEventListener("click", entrar);
+    })();
+  </script>
+</body>
+</html>

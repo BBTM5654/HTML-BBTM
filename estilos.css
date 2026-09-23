@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #312e2b;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1100px;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 36px;
+}
+
+.juego {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.tablero {
+    width: min(80vw, 640px);
+    height: min(80vw, 640px);
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+
+    border: 8px solid #262421;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.casilla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: clamp(30px, 7vw, 65px);
+
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+}
+
+.clara {
+    background: #f0d9b5;
+}
+
+.oscura {
+    background: #b58863;
+}
+
+.casilla:hover {
+    filter: brightness(1.1);
+}
+
+.seleccionada {
+    background: #f6f669 !important;
+}
+
+.movimiento::after {
+    content: "";
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.25);
+    position: absolute;
+}
+
+.movimiento-captura {
+    box-shadow: inset 0 0 0 6px rgba(220, 50, 40, 0.65);
+}
+
+.jaque {
+    background: #e74c3c !important;
+}
+
+.pieza {
+    z-index: 2;
+    filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.3));
+}
+
+.panel {
+    width: 260px;
+    background: #262421;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.estado {
+    background: #3c3936;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.informacion {
+    background: #3c3936;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.informacion p {
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 7px;
+
+    background: #81b64c;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #9aca62;
+}
+
+@media (max-width: 850px) {
+
+    body {
+        align-items: flex-start;
+    }
+
+    .contenedor {
+        padding: 15px;
+    }
+
+    .juego {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .panel {
+        width: min(80vw, 640px);
+    }
+
+}

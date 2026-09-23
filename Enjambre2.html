@@ -12,10 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
 
   <style>
-    /* ==========================================================
-       1. VARIABLES: paleta inspirada en el panal (enjambre),
-          el rock retro de los 70 y la noche
-       ========================================================== */
+
     :root {
       --tinta: #151022;
       --tinta-2: #1d1630;
@@ -33,9 +30,7 @@
       --alto-header: 68px;
     }
 
-    /* ==========================================================
-       2. BASE
-       ========================================================== */
+   
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: calc(var(--alto-header) + 12px); }
     body {
@@ -63,13 +58,10 @@
     .saltar { position: absolute; left: 1rem; top: -4rem; background: var(--miel); color: var(--tinta); padding: .6rem 1rem; border-radius: 8px; z-index: 200; font-weight: 800; }
     .saltar:focus { top: 1rem; }
 
-    /* Barra de progreso de lectura */
     .progreso { position: fixed; inset: 0 0 auto 0; height: 4px; z-index: 120; background: transparent; }
     .progreso span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--ambar), var(--rosa), var(--turquesa)); }
 
-    /* ==========================================================
-       3. ENCABEZADO Y NAVEGACIÓN
-       ========================================================== */
+   
     .encabezado {
       position: fixed; inset: 0 0 auto 0; z-index: 100;
       height: var(--alto-header);
@@ -115,9 +107,7 @@
       .menu a::after { left: .25rem; right: auto; width: 2.5rem; }
     }
 
-    /* ==========================================================
-       4. HERO con enjambre de abejas en canvas
-       ========================================================== */
+   
     .hero { position: relative; min-height: 100svh; display: grid; place-items: center; padding: 6rem 0 4rem; overflow: hidden; isolation: isolate; }
     .hero::before {
       content: ""; position: absolute; inset: 0; z-index: -2;
@@ -155,18 +145,13 @@
     .boton.secundario { background: transparent; color: var(--crema); border-color: var(--crema); }
     .boton.secundario:hover { background: var(--crema); color: var(--tinta); }
 
-    /* ==========================================================
-       5. CIFRAS (contadores animados)
-       ========================================================== */
+
     .cifras { padding: 2.5rem 0; background: var(--ambar); color: var(--tinta); }
     .cifras ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
     .cifras strong { display: block; font-family: var(--display); font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1; }
     .cifras span { font-weight: 600; font-size: .95rem; }
     @media (max-width: 640px) { .cifras ul { grid-template-columns: repeat(2, 1fr); row-gap: 1.6rem; } }
 
-    /* ==========================================================
-       6. HISTORIA
-       ========================================================== */
     .historia-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
     .historia-texto p:first-of-type::first-letter {
       font-family: var(--display); font-size: 3.6em; float: left; line-height: .85; padding: .08em .12em 0 0; color: var(--ambar);
@@ -183,9 +168,6 @@
     .etiquetas { display: flex; flex-wrap: wrap; gap: .45rem; list-style: none; padding: 0; margin: .8rem 0 1.2rem; }
     .etiquetas li { padding: .2rem .75rem; border-radius: 999px; font-size: .82rem; font-weight: 600; border: 1px solid currentColor; color: var(--miel); background: rgba(255, 255, 255, .03); }
 
-    /* ==========================================================
-       7. INTEGRANTES
-       ========================================================== */
     #integrantes { background: var(--tinta-2); }
     .integrantes-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.4rem; list-style: none; padding: 0; margin: 2rem 0 0; }
     .integrante { text-align: center; }
@@ -204,9 +186,6 @@
     .exintegrantes ul { columns: 2; column-gap: 2rem; max-width: 620px; }
     @media (max-width: 560px) { .exintegrantes ul { columns: 1; } }
 
-    /* ==========================================================
-       8. DISCOGRAFÍA: índice de hexágonos + un apartado por álbum
-       ========================================================== */
     .indice-hex { --h: clamp(64px, 15.5vw, 124px); margin: 2.5rem 0 1rem; display: flex; flex-direction: column; align-items: center; }
     .indice-hex .fila { display: flex; justify-content: center; }
     .indice-hex .fila + .fila { margin-top: calc(var(--h) * -.2887 + 4px); }
@@ -275,9 +254,6 @@
     .ep p { font-size: .95rem; margin-bottom: .6rem; }
     .ep ol, .ep ul { margin: .4rem 0 0; font-size: .95rem; }
 
-    /* ==========================================================
-       9. COLABORACIONES
-       ========================================================== */
     #colaboraciones { background: var(--tinta-2); }
     .tabla-envuelta { overflow-x: auto; border-radius: var(--radio); border: 1px solid var(--linea); margin-top: 1.6rem; }
     table { width: 100%; border-collapse: collapse; min-width: 640px; }
@@ -293,9 +269,7 @@
     .tag-tipo.cine { background: var(--miel); }
     .tag-tipo.sencillo { background: var(--ambar); }
 
-    /* ==========================================================
-       10. CRONOLOGÍA (la línea crece con el scroll)
-       ========================================================== */
+  
     .cronologia { --prog: 0; position: relative; margin-top: 3rem; padding-left: 0; list-style: none; }
     .cronologia::before, .cronologia::after { content: ""; position: absolute; left: 50%; top: 0; width: 4px; margin-left: -2px; border-radius: 4px; }
     .cronologia::before { bottom: 0; background: var(--linea); }
@@ -319,9 +293,6 @@
       .hito:nth-child(odd) p { margin-left: 0; }
     }
 
-    /* ==========================================================
-       11. RECONOCIMIENTOS + ZACATECAS + CURIOSIDADES
-       ========================================================== */
     #reconocimientos { background: var(--tinta-2); }
     .zacatecas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.3rem; margin-top: 2rem; }
     .tarjeta { background: var(--panal); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1.5rem; }
@@ -338,9 +309,6 @@
     details p { margin-bottom: 0; }
     @keyframes abre { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
 
-    /* ==========================================================
-       12. PIE DE PÁGINA
-       ========================================================== */
     footer.pie { background: #0e0a18; padding: 3.5rem 0 2rem; border-top: 4px solid var(--ambar); }
     .pie-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
     .pie h2 { font-size: 2rem; }
@@ -352,8 +320,6 @@
     .volver.visible { opacity: 1; transform: none; pointer-events: auto; }
     @media (max-width: 760px) { .pie-grid { grid-template-columns: 1fr; } }
 
-
-    /* Botón de canción aleatoria y aviso */
     button.boton { font: inherit; font-weight: 800; cursor: pointer; }
     .boton.azar { background: var(--turquesa); border-color: var(--turquesa); }
     .boton.azar:hover { background: #4fe0cb; border-color: #4fe0cb; }
@@ -365,15 +331,11 @@
     }
     .aviso.visible { opacity: 1; transform: translate(-50%, 0); }
 
-    /* Sencillos */
     .ep.ancho { grid-column: 1 / -1; }
     .sencillos { list-style: none; padding: 0; margin: 1rem 0 0; columns: 3 220px; column-gap: 2rem; }
     .sencillos li { break-inside: avoid; padding: .3rem 0; border-bottom: 1px dashed var(--linea); }
     .sencillos small { color: var(--suave); margin-left: .3rem; }
 
-    /* ==========================================================
-       13. ACCESIBILIDAD: respetar "reducir movimiento"
-       ========================================================== */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -386,7 +348,6 @@
   <a class="saltar" href="#historia">Saltar al contenido</a>
   <div class="progreso" aria-hidden="true"><span id="barra-progreso"></span></div>
 
-  <!-- ==================== ENCABEZADO ==================== -->
   <header class="encabezado" id="encabezado">
     <div class="contenedor">
       <a class="marca" href="#inicio" aria-label="Enjambre, ir al inicio">
@@ -409,7 +370,7 @@
   </header>
 
   <main>
-    <!-- ==================== INICIO ==================== -->
+
     <section class="hero" id="inicio" aria-labelledby="titulo-hero">
       <canvas id="enjambre-canvas" aria-hidden="true"></canvas>
       <div class="contenedor hero-contenido">
@@ -424,7 +385,6 @@
       <p class="pista-cursor">Mueve el cursor o toca la pantalla y el enjambre te sigue. Haz clic para dispersarlo.</p>
     </section>
 
-    <!-- ==================== CIFRAS ==================== -->
     <aside class="cifras" aria-label="Enjambre en cifras">
       <div class="contenedor">
         <ul>
@@ -436,7 +396,6 @@
       </div>
     </aside>
 
-    <!-- ==================== HISTORIA ==================== -->
     <section id="historia" aria-labelledby="titulo-historia">
       <div class="contenedor historia-grid">
         <div class="historia-texto">
@@ -475,7 +434,6 @@
       </div>
     </section>
 
-    <!-- ==================== INTEGRANTES ==================== -->
     <section id="integrantes" aria-labelledby="titulo-integrantes">
       <div class="contenedor">
         <h2 id="titulo-integrantes">Integrantes</h2>
@@ -531,7 +489,6 @@
       </div>
     </section>
 
-    <!-- ==================== DISCOS ==================== -->
     <section id="discos" aria-labelledby="titulo-discos">
       <div class="contenedor">
         <h2 id="titulo-discos">Discografía</h2>
@@ -555,7 +512,6 @@
         </nav>
         <p class="nota-indice">Los números son el año de cada disco.</p>
 
-        <!-- ============ 2005 · CONSUELO EN DOMINGO ============ -->
         <article class="album" id="consuelo-en-domingo" style="--a:#c77dff;--b:#5a189a" aria-labelledby="t-consuelo">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/consuelo-en-domingo.jpg" alt="Portada de Consuelo en domingo"> -->
@@ -586,7 +542,6 @@
           </div>
         </article>
 
-        <!-- ============ 2008 · EL SEGUNDO ES FELINO ============ -->
         <article class="album" id="el-segundo-es-felino" style="--a:#ff9f1c;--b:#e71d36" aria-labelledby="t-felino">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/el-segundo-es-felino.jpg" alt="Portada de El segundo es felino"> -->
@@ -596,7 +551,6 @@
           <div class="album-cuerpo">
             <p class="album-meta"><time datetime="2008">2008</time></p>
             <h3 id="t-felino">
-              <!-- Enlace de Spotify del álbum -->
               <a class="enlace-spotify" href="https://open.spotify.com/album/6MKWjtAaCgbK3AXFr8FMUe" target="_blank" rel="noopener noreferrer">El segundo es felino</a>
             </h3>
             <ul class="etiquetas" aria-label="Etiquetas del álbum">
@@ -617,7 +571,6 @@
           </div>
         </article>
 
-        <!-- ============ 2010 · DALTÓNICO ============ -->
         <article class="album" id="daltonico" style="--a:#06d6a0;--b:#ffd166" aria-labelledby="t-daltonico">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/daltonico.jpg" alt="Portada de Daltónico"> -->
@@ -627,7 +580,6 @@
           <div class="album-cuerpo">
             <p class="album-meta"><time datetime="2010-09-28">28 de septiembre de 2010</time></p>
             <h3 id="t-daltonico">
-              <!-- Enlace de Spotify del álbum -->
               <a class="enlace-spotify" href="https://open.spotify.com/album/5oWrwOXe12fNZc4r13XODy" target="_blank" rel="noopener noreferrer">Daltónico</a>
             </h3>
             <ul class="etiquetas" aria-label="Etiquetas del álbum">
@@ -649,7 +601,6 @@
           </div>
         </article>
 
-        <!-- ============ 2012 · LOS HUÉSPEDES DEL ORBE ============ -->
         <article class="album" id="los-huespedes-del-orbe" style="--a:#4cc9f0;--b:#f72585" aria-labelledby="t-huespedes">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/huespedes-del-orbe.jpg" alt="Portada de Enjambre y los huéspedes del orbe"> -->
@@ -659,7 +610,6 @@
           <div class="album-cuerpo">
             <p class="album-meta"><time datetime="2012-10-24">24 de octubre de 2012</time></p>
             <h3 id="t-huespedes">
-              <!-- Enlace de Spotify del álbum -->
               <a class="enlace-spotify" href="https://open.spotify.com/album/1uFaQla0ev4HyXQSoViXSi" target="_blank" rel="noopener noreferrer">Enjambre y los huéspedes del orbe</a>
             </h3>
             <ul class="etiquetas" aria-label="Etiquetas del álbum">
@@ -681,7 +631,6 @@
           </div>
         </article>
 
-        <!-- ============ 2014 · PROAÑO ============ -->
         <article class="album" id="proano" style="--a:#d6d6e4;--b:#a1662f" aria-labelledby="t-proano">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/proano.jpg" alt="Portada de Proaño"> -->
@@ -712,7 +661,6 @@
           </div>
         </article>
 
-        <!-- ============ 2017 · IMPERFECTO EXTRAÑO ============ -->
         <article class="album" id="imperfecto-extrano" style="--a:#ff6b6b;--b:#4d96ff" aria-labelledby="t-imperfecto">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/imperfecto-extrano.jpg" alt="Portada de Imperfecto extraño"> -->
@@ -743,7 +691,6 @@
           </div>
         </article>
 
-        <!-- ============ 2020 · PRÓXIMOS PRÓJIMOS ============ -->
         <article class="album" id="proximos-projimos" style="--a:#00f5d4;--b:#9b5de5" aria-labelledby="t-proximos">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/proximos-projimos.jpg" alt="Portada de Próximos prójimos"> -->
@@ -753,7 +700,6 @@
           <div class="album-cuerpo">
             <p class="album-meta"><time datetime="2020-09-27">27 de septiembre de 2020</time></p>
             <h3 id="t-proximos">
-              <!-- Enlace de Spotify del álbum -->
               <a class="enlace-spotify" href="https://open.spotify.com/album/3Qy4pIdXakmjoCflfxIShw" target="_blank" rel="noopener noreferrer">Próximos prójimos</a>
             </h3>
             <ul class="etiquetas" aria-label="Etiquetas del álbum">
@@ -773,7 +719,6 @@
           </div>
         </article>
 
-        <!-- ============ 2023 · NOCHES DE SALÓN ============ -->
         <article class="album" id="noches-de-salon" style="--a:#e9c46a;--b:#9d0208" aria-labelledby="t-noches">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/noches-de-salon.jpg" alt="Portada de Noches de salón"> -->
@@ -803,7 +748,6 @@
           </div>
         </article>
 
-        <!-- ============ 2026 · DAÑOS LUZ ============ -->
         <article class="album" id="danos-luz" style="--a:#ffe66d;--b:#ff6b35" aria-labelledby="t-danos">
           <figure class="portada">
             <!-- REEMPLAZA este bloque por: <img src="portadas/danos-luz.jpg" alt="Portada de Daños Luz"> -->
@@ -833,7 +777,6 @@
           </div>
         </article>
 
-        <!-- ============ EPs ============ -->
         <h3 class="subtitulo-seccion">EP y sencillos</h3>
 
         <div class="eps">
@@ -921,8 +864,6 @@
         </div>
       </div>
     </section>
-
-<!-- ==================== COLABORACIONES ==================== -->
 
 <section id="colaboraciones" aria-labelledby="titulo-colab">
   <div class="contenedor">
@@ -1045,8 +986,6 @@
   </div>
 </section>
 
-
-    <!-- ==================== CRONOLOGÍA ==================== -->
     <section id="cronologia" aria-labelledby="titulo-crono">
       <div class="contenedor">
         <h2 id="titulo-crono">Cronología</h2>
@@ -1076,7 +1015,6 @@
       </div>
     </section>
 
-    <!-- ==================== RECONOCIMIENTOS ==================== -->
     <section id="reconocimientos" aria-labelledby="titulo-reco">
       <div class="contenedor">
         <h2 id="titulo-reco">Reconocimientos</h2>
@@ -1121,8 +1059,6 @@
         </details>
       </div>
     </section>
-
-    <!-- ==================== ZACATECAS ==================== -->
     <section id="zacatecas" aria-labelledby="titulo-zac">
       <div class="contenedor">
         <h2 id="titulo-zac">Raíces zacatecanas</h2>
@@ -1150,7 +1086,6 @@
     </section>
   </main>
 
-  <!-- ==================== PIE ==================== -->
   <footer class="pie">
     <div class="contenedor">
       <div class="pie-grid">
@@ -1186,15 +1121,11 @@
 
   <button class="volver" id="volver" aria-label="Volver arriba">&uarr;</button>
 
-  <!-- ============================================================
-       JAVASCRIPT: enjambre, navegación y animaciones al hacer scroll
-       ============================================================ -->
   <script>
     (() => {
       "use strict";
       const reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      /* ---------- 1. ENJAMBRE DE ABEJAS EN EL HERO ---------- */
       const canvas = document.getElementById("enjambre-canvas");
       const ctx = canvas.getContext("2d");
       let w = 0, h = 0, dpr = 1, t = 0, visible = true, corriendo = false;
@@ -1292,7 +1223,6 @@
       new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) arrancar(); }).observe(hero);
       ajustar(); arrancar();
 
-      /* ---------- 2. ENCABEZADO, PROGRESO Y BOTÓN "VOLVER" ---------- */
       const encabezado = document.getElementById("encabezado");
       const barra = document.getElementById("barra-progreso");
       const volver = document.getElementById("volver");
@@ -1304,7 +1234,6 @@
         encabezado.classList.toggle("compacto", y > 40);
         barra.style.width = (total > 0 ? (y / total) * 100 : 0) + "%";
         volver.classList.toggle("visible", y > 700);
-        // la línea de la cronología crece con el scroll
         const r = lineaTiempo.getBoundingClientRect();
         const avance = (window.innerHeight * .6 - r.top) / r.height;
         lineaTiempo.style.setProperty("--prog", Math.min(1, Math.max(0, avance)).toFixed(3));
@@ -1313,7 +1242,6 @@
       alHacerScroll();
       volver.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reducir ? "auto" : "smooth" }));
 
-      /* ---------- 3. MENÚ MÓVIL ---------- */
       const botonMenu = document.getElementById("boton-menu");
       const menu = document.getElementById("menu");
       botonMenu.addEventListener("click", () => {
@@ -1324,7 +1252,6 @@
         if (e.target.closest("a")) { menu.classList.remove("abierto"); botonMenu.setAttribute("aria-expanded", "false"); }
       });
 
-      /* ---------- 4. ENLACE ACTIVO EN LA NAVEGACIÓN ---------- */
       const enlaces = [...menu.querySelectorAll("a")];
       const secciones = enlaces.map(a => document.querySelector(a.getAttribute("href")));
       const obsSeccion = new IntersectionObserver((entradas) => {
@@ -1336,13 +1263,11 @@
       }, { rootMargin: "-45% 0px -50% 0px" });
       secciones.forEach(s => s && obsSeccion.observe(s));
 
-      /* ---------- 5. APARICIÓN DE ÁLBUMES E HITOS ---------- */
       const obsAparicion = new IntersectionObserver((entradas) => {
         entradas.forEach(en => { if (en.isIntersecting) { en.target.classList.add("visible"); obsAparicion.unobserve(en.target); } });
       }, { threshold: .12 });
       document.querySelectorAll(".album, .hito").forEach(el => obsAparicion.observe(el));
 
-      /* ---------- 6. CONTADORES ANIMADOS ---------- */
       const obsCifras = new IntersectionObserver((entradas) => {
         entradas.forEach(en => {
           if (!en.isIntersecting) return;
@@ -1359,10 +1284,6 @@
       }, { threshold: .6 });
       document.querySelectorAll("[data-meta]").forEach(el => obsCifras.observe(el));
 
-      /* ---------- 7. CANCIÓN ALEATORIA ---------- */
-      // Reúne todas las canciones de la página (una sola vez cada una).
-      // Si en algún <li> agregas data-spotify="https://open.spotify.com/track/...",
-      // se abre esa canción directo. Si no, abre la búsqueda en Spotify.
       const btnAzar = document.getElementById("btn-aleatoria");
       const aviso = document.getElementById("aviso");
       const limpiar = (t) => t.replace(/\s*\(.*?\)/g, "").replace(/\s+/g, " ").trim();

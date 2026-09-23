@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajedrez</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Ajedrez</h1>
+
+        <div class="juego">
+
+            <div class="tablero" id="tablero"></div>
+
+            <div class="panel">
+
+                <div class="estado" id="estado">
+                    Turno: Blancas
+                </div>
+
+                <div class="informacion">
+                    <p>Jugador 1: ⚪ Blancas</p>
+                    <p>Jugador 2: ⚫ Negras</p>
+                </div>
+
+                <button id="reiniciar">
+                    Reiniciar partida
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="ajedrez.js"></script>
+
+</body>
+</html>
