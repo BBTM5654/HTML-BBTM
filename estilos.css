@@ -6,24 +6,17 @@
 
 body {
     min-height: 100vh;
-    background: #312e2b;
+    background-image: linear-gradient(to right, #5c034d, #4846b6);
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
     color: white;
 }
 
 .contenedor {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1400px;
     padding: 30px;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 36px;
 }
 
 .juego {
@@ -31,6 +24,7 @@ h1 {
     justify-content: center;
     align-items: flex-start;
     gap: 40px;
+    margin-bottom: 50px;
 }
 
 .tablero {
@@ -41,7 +35,7 @@ h1 {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
 
-    border: 8px solid #262421;
+    border: 8px solid #3f0788;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -59,11 +53,11 @@ h1 {
 }
 
 .clara {
-    background: #f0d9b5;
+    background: #ab04b1;
 }
 
 .oscura {
-    background: #b58863;
+    background: #777373;
 }
 
 .casilla:hover {
@@ -71,7 +65,7 @@ h1 {
 }
 
 .seleccionada {
-    background: #f6f669 !important;
+    background: #74fa26 !important;
 }
 
 .movimiento::after {
@@ -98,14 +92,14 @@ h1 {
 
 .panel {
     width: 260px;
-    background: #262421;
+    background: #0a4b42;
     border-radius: 10px;
     padding: 25px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .estado {
-    background: #3c3936;
+    background: #a82df0;
     padding: 18px;
     border-radius: 8px;
     text-align: center;
@@ -115,7 +109,7 @@ h1 {
 }
 
 .informacion {
-    background: #3c3936;
+    background: #3b3a38;
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 20px;
@@ -141,7 +135,109 @@ button {
 }
 
 button:hover {
-    background: #9aca62;
+    background: #88ff00;
+}
+.horario {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 5px solid #5c2a9d;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.horario h1 {
+    text-align: left;
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+
+.horario table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #e8d8e8;
+    border: 5px solid #5c2a9d;
+}
+
+.horario th,
+.horario td {
+    border: 4px solid #5c2a9d;
+    height: 65px;
+    text-align: center;
+    font-weight: bold;
+    color: #302030;
+    padding: 10px;
+}
+
+.horario thead th {
+    background: #d7ed00;
+    font-size: 18px;
+}
+
+.horario tbody th {
+    background: #d9df91;
+    width: 80px;
+}
+
+.horario td {
+    background: #eeeeee;
+}
+
+.sistemas {
+    background: #7171f1 !important;
+}
+
+.so {
+    background: #6848d0 !important;
+    color: white !important;
+}
+
+.tutorias {
+    background: #21b5d0 !important;
+    color: white !important;
+}
+
+.matematicas {
+    background: #bd7845 !important;
+    color: #382020 !important;
+}
+
+.receso {
+    background: #19d51d !important;
+    color: #173517 !important;
+    height: 65px !important;
+}
+
+.programacion {
+    background: #f09acb !important;
+    color: #402040 !important;
+}
+
+.bases {
+    background: #f2c94c !important;
+    color: #402c00 !important;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    .juego {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .panel {
+        width: min(80vw, 640px);
+    }
+
+    .horario {
+        overflow-x: auto;
+    }
+
+    .horario table {
+        min-width: 950px;
+    }
 }
 
 @media (max-width: 850px) {
@@ -155,8 +251,6 @@ button:hover {
     }
 
     .juego {
-        flex-direction: column;
-        align-items: center;
         gap: 20px;
     }
 

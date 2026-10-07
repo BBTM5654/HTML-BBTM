@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajedrez</title>
+    <title>Ajedrez y Horario</title>
 
     <link rel="stylesheet" href="estilos.css">
 
@@ -13,8 +13,6 @@
 <body>
 
     <div class="contenedor">
-
-        <h1>Ajedrez</h1>
 
         <div class="juego">
 
@@ -27,8 +25,8 @@
                 </div>
 
                 <div class="informacion">
-                    <p>Jugador 1: ⚪ Blancas</p>
-                    <p>Jugador 2: ⚫ Negras</p>
+                    <p>Jugador 1: Blancas</p>
+                    <p>Jugador 2: Negras</p>
                 </div>
 
                 <button id="reiniciar">
@@ -36,6 +34,138 @@
                 </button>
 
             </div>
+
+        </div>
+
+        <div class="horario">
+
+            <h1>Horario de Clases</h1>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th>8-9</th>
+
+                        <td rowspan="2" class="sistemas">
+                            Sistemas Operativos
+                        </td>
+
+                        <td class="so">
+                            S. O. II
+                        </td>
+
+                        <td rowspan="2" class="tutorias">
+                            Tutorías
+                        </td>
+
+                        <td rowspan="2" class="programacion">
+                            Programación
+                        </td>
+
+                        <td class="matematicas">
+                            Matemáticas
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>9-10</th>
+
+                        <td class="tutorias">
+                            Tutorías
+                        </td>
+
+                        <td class="so">
+                            S. O. II
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>10-11</th>
+
+                        <td colspan="5" class="receso">
+                            Receso
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>11-12</th>
+
+                        <td class="matematicas">
+                            Matemáticas
+                        </td>
+
+                        <td class="sistemas">
+                            Sistemas Operativos
+                        </td>
+
+                        <td class="so">
+                            S. O. II
+                        </td>
+
+                        <td class="programacion">
+                            Programación
+                        </td>
+
+                        <td class="tutorias">
+                            Tutorías
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>12-13</th>
+
+                        <td class="tutorias">
+                            Tutorías
+                        </td>
+
+                        <td rowspan="2" class="matematicas">
+                            Matemáticas
+                        </td>
+
+                        <td class="matematicas">
+                            Matemáticas
+                        </td>
+
+                        <td rowspan="2" class="bases">
+                            Bases de Datos
+                        </td>
+
+                        <td class="programacion">
+                            Programación
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>13-14</th>
+
+                        <td class="so">
+                            S. O. II
+                        </td>
+
+                        <td class="so">
+                            S. O. II
+                        </td>
+
+                        <td class="matematicas">
+                            Matemáticas
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
 
         </div>
 

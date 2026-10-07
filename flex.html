@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios con FLEX</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 30px;
+            background: #222;
+            color: white;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .ejercicio {
+            margin: 30px auto;
+            max-width: 1100px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,.1);
+        }
+
+
+      
+        .ej1 {
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #eee;
+        }
+
+        .centro {
+            width: 200px;
+            height: 200px;
+            background: #4a90e2;
+            color: white;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #222;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .tarjeta {
+            flex: 1 1 250px;
+            height: 150px;
+            background: #4a90e2;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            border-radius: 10px;
+        }
+
+        .perfil {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 250px;
+            padding: 25px;
+            margin: auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.1);
+        }
+
+        .perfil img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .perfil h3,
+        .perfil p {
+            margin: 0;
+        }
+
+        .perfil button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #4a90e2;
+            color: white;
+            cursor: pointer;
+        }
+
+
+        .footer {
+            background: #222;
+            color: white;
+        }
+
+        .columnas {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .col {
+            flex: 1;
+            padding: 20px;
+            background: #333;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 15px;
+            background: #111;
+            font-size: 14px;
+        }
+
+
+        .layout {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+        }
+
+        .layout header,
+        .layout footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .medio {
+            display: flex;
+            flex: 1;
+        }
+
+        .medio aside {
+            width: 200px;
+            background: #ddd;
+            padding: 20px;
+        }
+
+        .medio main {
+            flex: 1;
+            padding: 20px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #222;
+            color: white;
+        }
+
+        .buscador {
+            margin: 0 auto;
+            padding: 8px 15px;
+            width: 300px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .avatar {
+            font-size: 25px;
+        }
+
+        .tareas {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarea {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid #ddd;
+            gap: 15px;
+        }
+
+        .tarea button {
+            margin-left: auto;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .completada {
+            order: 1;
+            text-decoration: line-through;
+            opacity: .5;
+        }
+
+
+
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .estadistica {
+            flex: 1 1 200px;
+            min-height: 120px;
+            background: #4a90e2;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 12px;
+        }
+
+        .estadistica h3,
+        .estadistica p {
+            margin: 5px;
+        }
+
+        .estadistica-grande {
+            flex-basis: 100%;
+            height: 200px;
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            font-size: 25px;
+        }
+
+
+  
+        .chat {
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            background: #eee;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .mensajes {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .mensaje {
+            max-width: 60%;
+            padding: 12px 18px;
+            border-radius: 15px;
+            background: white;
+            align-self: flex-start;
+        }
+
+        .propio {
+            align-self: flex-end;
+            background: #4a90e2;
+            color: white;
+        }
+
+        .entrada {
+            display: flex;
+            margin-top: auto;
+            padding: 15px;
+            background: white;
+            gap: 10px;
+        }
+
+        .entrada input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+
+        .entrada button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #4a90e2;
+            color: white;
+            cursor: pointer;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .menu {
+                gap: 8px;
+                font-size: 13px;
+            }
+
+            .navbar {
+                padding: 15px;
+            }
+
+            .columnas {
+                flex-direction: column;
+            }
+
+            .medio {
+                flex-direction: column;
+            }
+
+            .medio aside {
+                width: auto;
+            }
+
+            .layout {
+                height: auto;
+            }
+
+            .header {
+                gap: 10px;
+            }
+
+            .buscador {
+                width: 150px;
+            }
+
+            .mensaje {
+                max-width: 80%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Ejercicios con FLEX</h1>
+
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 1: Centrar un cuadro</h2>
+
+        <div class="ej1">
+            <div class="centro">🎯</div>
+        </div>
+
+    </section>
+
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 2: Barra de navegación</h2>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MiSitio
+            </div>
+
+            <ul class="menu">
+                <li>Inicio</li>
+                <li>Servicios</li>
+                <li>Blog</li>
+                <li>Contacto</li>
+            </ul>
+
+        </nav>
+
+    </section>
+
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 3: Galería de tarjetas</h2>
+
+        <div class="galeria">
+
+            <div class="tarjeta">1</div>
+            <div class="tarjeta">2</div>
+            <div class="tarjeta">3</div>
+            <div class="tarjeta">4</div>
+            <div class="tarjeta">5</div>
+            <div class="tarjeta">6</div>
+
+        </div>
+
+    </section>
+
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 4: Tarjeta de perfil</h2>
+
+        <div class="perfil">
+
+            <img src="https://i.pravatar.cc/100" alt="foto">
+
+            <h3>Ana García</h3>
+
+            <p>Diseñadora UX</p>
+
+            <button>Seguir</button>
+
+        </div>
+
+    </section>
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 5: Pie de página</h2>
+
+        <footer class="footer">
+
+            <div class="columnas">
+
+                <div class="col">
+                    Sobre nosotros
+                </div>
+
+                <div class="col">
+                    Enlaces
+                </div>
+
+                <div class="col">
+                    Contacto
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                © 2025 MiSitio
+            </div>
+
+        </footer>
+
+    </section>
+
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 6: Layout Holy Grail</h2>
+
+        <div class="layout">
+
+            <header>
+                Header
+            </header>
+
+            <div class="medio">
+
+                <aside class="izq">
+                    Izquierda
+                </aside>
+
+                <main>
+                    Contenido principal
+                </main>
+
+                <aside class="der">
+                    Derecha
+                </aside>
+
+            </div>
+
+            <footer>
+                Footer
+            </footer>
+
+        </div>
+
+    </section>
+
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 7: Header con búsqueda</h2>
+
+        <header class="header">
+
+            <div class="logo">
+                Logo
+            </div>
+
+            <input
+                class="buscador"
+                type="text"
+                placeholder="Buscar..."
+            >
+
+            <div class="avatar">
+                👤
+            </div>
+
+        </header>
+
+    </section>
+
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 8: Lista de tareas</h2>
+
+        <div class="tareas">
+
+            <div class="tarea">
+
+                <span>
+                    Comprar pan
+                </span>
+
+                <small>
+                    Hoy
+                </small>
+
+                <button>
+                    ❌
+                </button>
+
+            </div>
+
+            <div class="tarea">
+
+                <span>
+                    Estudiar CSS
+                </span>
+
+                <small>
+                    Mañana
+                </small>
+
+                <button>
+                    ❌
+                </button>
+
+            </div>
+
+            <div class="tarea completada">
+
+                <span>
+                    Regar plantas
+                </span>
+
+                <small>
+                    Ayer
+                </small>
+
+                <button>
+                    ❌
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 9: Dashboard de estadísticas</h2>
+
+        <div class="dashboard">
+
+            <div class="estadistica">
+                <h3>Usuarios</h3>
+                <p>1,250</p>
+            </div>
+
+            <div class="estadistica">
+                <h3>Ventas</h3>
+                <p>850</p>
+            </div>
+
+            <div class="estadistica">
+                <h3>Visitas</h3>
+                <p>5,430</p>
+            </div>
+
+            <div class="estadistica">
+                <h3>Pedidos</h3>
+                <p>320</p>
+            </div>
+
+            <div class="estadistica-grande">
+                Estadística general
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         EJERCICIO 10
+    ========================================== -->
+
+    <section class="ejercicio">
+
+        <h2>Ejercicio 10: Chat de mensajes</h2>
+
+        <div class="chat">
+
+            <div class="mensajes">
+
+                <div class="mensaje">
+                    Hola, ¿cómo estás?
+                </div>
+
+                <div class="mensaje propio">
+                    ¡Hola! Estoy muy bien.
+                </div>
+
+                <div class="mensaje">
+                    ¿Ya terminaste el ejercicio?
+                </div>
+
+                <div class="mensaje propio">
+                    Sí, ya casi termino.
+                </div>
+
+            </div>
+
+            <div class="entrada">
+
+                <input
+                    type="text"
+                    placeholder="Escribe un mensaje..."
+                >
+
+                <button>
+                    Enviar
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</body>
+</html>

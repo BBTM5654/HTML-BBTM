@@ -1,0 +1,1101 @@
+:root {
+--azul: #18263f;
+--azul-2: #263957;
+--vino: #b85d73;
+--vino-claro: #f4dce2;
+--verde: #347d76;
+--dorado: #d9a63f;
+--crema: #fbf8f4;
+--blanco: #ffffff;
+--texto: #303542;
+--gris: #697080;
+--borde: #e9e1df;
+--sombra: 0 12px 35px rgba(24, 38, 63, .08);
+}
+
+{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+}
+body {
+font-family: Georgia, "Times New Roman", serif;
+background: var(--crema);
+color: var(--texto);
+line-height: 1.65;
+}
+h1,
+h2,
+h3,
+h4,
+nav,
+button,
+input,
+.logo,
+.btn,
+.mini-titulo,
+.numero {
+font-family: "Trebuchet MS", Arial, sans-serif;
+}
+a {
+text-decoration: none;
+color: inherit;
+}
+button {
+cursor: pointer;
+}
+/* ==================== HEADER ==================== */
+.header {
+background: var(--azul);
+color: white;
+}
+.barra-superior {
+min-height: 75px;
+padding: 14px 5%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 20px;
+flex-wrap: wrap;
+}
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 1.45rem;
+font-weight: bold;
+white-space: nowrap;
+}
+.logo-icon {
+width: 42px;
+height: 42px;
+border-radius: 10px;
+display: grid;
+place-items: center;
+background: var(--vino);
+color: white;
+font-size: 1.5rem;
+}
+.menu {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 5px;
+flex-wrap: wrap;
+}
+.menu a {
+padding: 8px 12px;
+border-radius: 20px;
+font-size: .85rem;
+transition: .2s;
+}
+.menu a:hover,
+.menu a.activo {
+background: var(--vino);
+}
+.telefono {
+color: var(--vino-claro);
+font-family: "Trebuchet MS", sans-serif;
+font-size: .85rem;
+}
+/* ==================== HERO ==================== */
+.hero {
+min-height: 570px;
+padding: 70px 7%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 50px;
+overflow: hidden;
+background:
+radial-gradient(circle at 80% 20%, rgba(217,166,63,.18), transparent 30%),
+linear-gradient(125deg, var(--azul), #30456a);
+}
+.hero-texto {
+max-width: 650px;
+}
+.etiqueta,
+.mini-titulo {
+display: inline-block;
+color: var(--dorado);
+font-family: "Trebuchet MS", sans-serif;
+font-size: .75rem;
+font-weight: bold;
+letter-spacing: 2px;
+}
+.hero h1 {
+font-size: clamp(2.4rem, 5vw, 4.5rem);
+line-height: 1.05;
+margin: 15px 0 22px;
+}
+.hero h1 span {
+color: var(--vino-claro);
+}
+.hero p {
+max-width: 600px;
+font-size: 1.1rem;
+color: #e3e7ef;
+}
+.hero-botones {
+margin-top: 28px;
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+}
+.btn {
+display: inline-block;
+padding: 13px 23px;
+border-radius: 30px;
+font-size: .9rem;
+font-weight: bold;
+transition: .25s;
+}
+.btn:hover {
+transform: translateY(-3px);
+}
+.btn.principal {
+background: var(--dorado);
+color: var(--azul);
+}
+.btn.secundario {
+border: 1px solid rgba(255,255,255,.6);
+color: white;
+}
+.hero-datos {
+margin-top: 38px;
+display: flex;
+gap: 35px;
+flex-wrap: wrap;
+}
+.hero-datos div {
+display: flex;
+flex-direction: column;
+}
+.hero-datos strong {
+font-family: "Trebuchet MS", sans-serif;
+font-size: 1.6rem;
+}
+.hero-datos span {
+color: #bfc8da;
+font-size: .8rem;
+}
+/* LIBROS DECORATIVOS */
+.hero-libros {
+height: 390px;
+width: 390px;
+position: relative;
+flex-shrink: 0;
+}
+.libro-decorativo {
+position: absolute;
+bottom: 25px;
+width: 90px;
+border-radius: 4px 10px 10px 4px;
+box-shadow: -8px 0 rgba(0,0,0,.12), 15px 15px 30px rgba(0,0,0,.25);
+display: flex;
+align-items: center;
+justify-content: center;
+writing-mode: vertical-rl;
+font: bold .75rem "Trebuchet MS", sans-serif;
+letter-spacing: 2px;
+}
+.libro-1 {
+height: 270px;
+left: 15px;
+background: var(--vino);
+transform: rotate(-10deg);
+}
+.libro-2 {
+height: 340px;
+left: 100px;
+background: var(--dorado);
+color: var(--azul);
+z-index: 2;
+transform: rotate(1deg);
+}
+.libro-3 {
+height: 300px;
+left: 190px;
+background: var(--verde);
+z-index: 1;
+transform: rotate(7deg);
+}
+.libro-4 {
+height: 245px;
+left: 275px;
+background: #e9e2d5;
+color: var(--azul);
+transform: rotate(14deg);
+}
+/* ==================== LAYOUT ==================== */
+.layout {
+width: 90%;
+max-width: 1500px;
+margin: 45px auto;
+display: flex;
+align-items: flex-start;
+gap: 25px;
+}
+.aside,
+.lateral {
+flex: 0 0 235px;
+display: flex;
+flex-direction: column;
+gap: 22px;
+}
+.main {
+min-width: 0;
+flex: 1;
+display: flex;
+flex-direction: column;
+gap: 25px;
+}
+/* ==================== TARJETAS ==================== */
+.tarjeta-aside,
+.tarjeta-lateral,
+.seccion {
+background: white;
+border: 1px solid var(--borde);
+border-radius: 17px;
+box-shadow: var(--sombra);
+}
+.tarjeta-aside,
+.tarjeta-lateral {
+padding: 20px;
+}
+.titulo-aside {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 15px;
+}
+.titulo-aside > span {
+width: 31px;
+height: 31px;
+display: grid;
+place-items: center;
+border-radius: 50%;
+background: var(--vino-claro);
+color: var(--vino);
+font-family: "Trebuchet MS", sans-serif;
+font-weight: bold;
+}
+.titulo-aside h3 {
+color: var(--azul);
+font-size: 1rem;
+}
+/* ==================== CATEGORIAS ==================== */
+.categorias {
+list-style: none;
+}
+.categorias li {
+border-bottom: 1px dashed var(--borde);
+}
+.categorias li:last-child {
+border-bottom: 0;
+}
+.categorias a {
+padding: 10px 0;
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: .85rem;
+transition: .2s;
+}
+.categorias a span {
+color: var(--vino);
+font: bold .7rem "Trebuchet MS", sans-serif;
+}
+.categorias a:hover {
+color: var(--vino);
+padding-left: 5px;
+}
+/* ==================== HORARIO ==================== */
+.horario {
+background: var(--azul);
+color: white;
+}
+.horario h3 {
+margin-bottom: 12px;
+}
+.horario p {
+color: #dce2ee;
+font-size: .85rem;
+margin-top: 8px;
+}
+.horario strong {
+display: block;
+color: white;
+}
+.icono-grande {
+font-size: 2rem;
+color: var(--dorado);
+}
+/* ==================== AYUDA ==================== */
+.ayuda-lista {
+list-style: none;
+}
+.ayuda-lista li {
+padding: 7px 0;
+border-bottom: 1px dashed var(--borde);
+font-size: .85rem;
+}
+.ayuda-lista li:last-child {
+border: 0;
+}
+.ayuda-lista a:hover {
+color: var(--vino);
+}
+/* ==================== SECCIONES ==================== */
+.seccion {
+padding: 32px;
+}
+.encabezado-seccion {
+display: flex;
+align-items: center;
+gap: 15px;
+margin-bottom: 20px;
+}
+.numero {
+font-size: .75rem;
+font-weight: bold;
+color: var(--vino);
+}
+.encabezado-seccion h2,
+.catalogo h2,
+.galeria h2 {
+color: var(--azul);
+font-size: 1.8rem;
+line-height: 1.2;
+}
+.texto-grande {
+font-size: 1.15rem;
+max-width: 75ch;
+}
+.seccion p {
+margin-top: 12px;
+}
+/* ==================== ESTADISTICAS ==================== */
+.estadisticas {
+margin-top: 25px;
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+}
+.estadistica {
+flex: 1 1 130px;
+padding: 17px;
+border-radius: 12px;
+background: var(--vino-claro);
+text-align: center;
+}
+.estadistica strong {
+display: block;
+font: bold 1.8rem "Trebuchet MS", sans-serif;
+color: var(--azul);
+}
+.estadistica span {
+font-size: .8rem;
+}
+/* ==================== EDITORIALES ==================== */
+.editoriales-grid {
+margin-top: 22px;
+display: flex;
+flex-wrap: wrap;
+gap: 15px;
+}
+.editorial-card {
+flex: 1 1 200px;
+padding: 20px;
+border-radius: 15px;
+border: 1px solid var(--borde);
+transition: .25s;
+}
+.editorial-card:hover {
+transform: translateY(-4px);
+box-shadow: var(--sombra);
+}
+.editorial-logo {
+width: 48px;
+height: 48px;
+border-radius: 50%;
+display: grid;
+place-items: center;
+margin-bottom: 12px;
+background: var(--azul);
+color: white;
+font: bold 1.4rem "Trebuchet MS", sans-serif;
+}
+.editorial-b .editorial-logo {
+background: var(--vino);
+}
+.editorial-c .editorial-logo {
+background: var(--verde);
+}
+.editorial-d .editorial-logo {
+background: var(--dorado);
+color: var(--azul);
+}
+.editorial-card h3 {
+color: var(--azul);
+font-size: 1rem;
+}
+.editorial-card p {
+font-size: .83rem;
+}
+.editorial-card > span {
+display: inline-block;
+margin-top: 10px;
+font: bold .68rem "Trebuchet MS", sans-serif;
+color: var(--verde);
+}
+/* ==================== PASOS ==================== */
+.pasos {
+margin-top: 20px;
+display: flex;
+flex-wrap: wrap;
+gap: 15px;
+}
+.paso {
+flex: 1 1 150px;
+padding: 17px;
+background: var(--crema);
+border-radius: 12px;
+border-left: 4px solid var(--dorado);
+}
+.paso-numero {
+font: bold 1.5rem "Trebuchet MS", sans-serif;
+color: var(--vino);
+}
+.paso h3 {
+color: var(--azul);
+margin-top: 4px;
+}
+.paso p {
+font-size: .82rem;
+}
+/* ==================== OFERTA ==================== */
+.oferta {
+padding: 25px;
+border-radius: 17px;
+background:
+linear-gradient(145deg, var(--vino), #8d4156);
+color: white;
+box-shadow: var(--sombra);
+}
+.oferta-tag {
+font: bold .65rem "Trebuchet MS", sans-serif;
+letter-spacing: 2px;
+color: var(--vino-claro);
+}
+.oferta h3 {
+margin-top: 12px;
+}
+.oferta strong {
+display: block;
+font: bold 4rem "Trebuchet MS", sans-serif;
+color: var(--dorado);
+line-height: 1;
+margin: 12px 0;
+}
+.oferta p {
+font-size: .85rem;
+}
+.oferta-btn {
+margin-top: 18px;
+background: white;
+color: var(--vino);
+}
+/* ==================== EVENTOS ==================== */
+.evento {
+display: flex;
+gap: 10px;
+align-items: center;
+padding: 12px 0;
+border-bottom: 1px solid var(--borde);
+}
+.evento:last-child {
+border-bottom: 0;
+}
+.fecha {
+width: 48px;
+min-width: 48px;
+padding: 5px;
+border-radius: 8px;
+text-align: center;
+background: var(--vino-claro);
+color: var(--azul);
+}
+.fecha span {
+display: block;
+font: bold .65rem "Trebuchet MS", sans-serif;
+}
+.fecha strong {
+display: block;
+font: bold 1.35rem "Trebuchet MS", sans-serif;
+}
+.evento h4 {
+font-size: .78rem;
+color: var(--azul);
+}
+.evento p {
+margin-top: 2px;
+font-size: .7rem;
+color: var(--gris);
+}
+/* ==================== NOVEDADES ==================== */
+.novedades ul {
+list-style: none;
+}
+.novedades li {
+padding: 8px 0;
+font-size: .8rem;
+border-bottom: 1px dashed var(--borde);
+}
+.novedades li::before {
+content: "✦";
+color: var(--dorado);
+margin-right: 7px;
+}
+/* ==================== BOLETIN ==================== */
+.boletin {
+padding: 22px;
+background: var(--azul);
+color: white;
+border-radius: 17px;
+box-shadow: var(--sombra);
+}
+.boletin-icon {
+color: var(--dorado);
+font-size: 1.8rem;
+}
+.boletin h3 {
+margin: 8px 0;
+}
+.boletin p {
+font-size: .8rem;
+color: #d4dbe7;
+}
+.boletin input {
+width: 100%;
+margin-top: 15px;
+padding: 11px;
+border: 0;
+border-radius: 8px;
+}
+.boletin button {
+width: 100%;
+margin-top: 8px;
+padding: 10px;
+border: 0;
+border-radius: 8px;
+background: var(--dorado);
+color: var(--azul);
+font-weight: bold;
+}
+/* ==================== CATALOGO ==================== */
+.catalogo {
+width: 90%;
+max-width: 1500px;
+margin: 0 auto;
+padding: 35px 0 60px;
+}
+.catalogo-header {
+display: flex;
+justify-content: space-between;
+align-items: end;
+gap: 30px;
+}
+.catalogo-header p {
+max-width: 700px;
+margin-top: 10px;
+}
+.contador {
+min-width: 130px;
+padding: 15px;
+border-radius: 12px;
+background: var(--azul);
+color: white;
+text-align: center;
+}
+.contador strong {
+display: block;
+font: bold 1.8rem "Trebuchet MS", sans-serif;
+color: var(--dorado);
+}
+.contador span {
+font-size: .7rem;
+}
+/* HERRAMIENTAS */
+.herramientas {
+margin: 25px 0 15px;
+display: flex;
+align-items: center;
+gap: 10px;
+flex-wrap: wrap;
+}
+.buscador {
+flex: 1 1 350px;
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 11px 16px;
+background: white;
+border: 2px solid var(--borde);
+border-radius: 30px;
+}
+.buscador span {
+font-size: 1.3rem;
+color: var(--vino);
+}
+.buscador input {
+width: 100%;
+border: 0;
+outline: 0;
+background: transparent;
+font-size: .9rem;
+}
+.orden,
+.filtro {
+border: 1px solid var(--borde);
+background: white;
+color: var(--azul);
+padding: 10px 16px;
+border-radius: 25px;
+font-weight: bold;
+}
+.orden.activo,
+.orden:hover,
+.filtro.activo,
+.filtro:hover {
+background: var(--azul);
+color: white;
+border-color: var(--azul);
+}
+.filtros {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 25px;
+}
+/* GRUPOS */
+.grupo {
+margin-top: 30px;
+}
+.grupo-titulo {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 15px;
+border-bottom: 3px solid var(--dorado);
+padding-bottom: 8px;
+margin-bottom: 15px;
+}
+.grupo-titulo h3 {
+color: var(--azul);
+}
+.grupo-titulo span {
+font-size: .75rem;
+color: var(--gris);
+}
+/* LIBROS */
+.lista-libros {
+display: flex;
+flex-wrap: wrap;
+gap: 16px;
+}
+.libro-card {
+flex: 1 1 330px;
+max-width: 470px;
+min-height: 245px;
+display: flex;
+gap: 15px;
+padding: 15px;
+background: white;
+border: 1px solid var(--borde);
+border-radius: 15px;
+box-shadow: 0 5px 18px rgba(24,38,63,.06);
+transition: .25s;
+}
+.libro-card:hover {
+transform: translateY(-4px);
+box-shadow: var(--sombra);
+}
+.portada {
+width: 105px;
+min-width: 105px;
+height: 155px;
+border-radius: 4px 9px 9px 4px;
+overflow: hidden;
+box-shadow: 4px 5px 10px rgba(0,0,0,.2);
+background: var(--azul);
+}
+.portada img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.info-libro {
+min-width: 0;
+display: flex;
+flex-direction: column;
+}
+.genero-libro {
+font: bold .65rem "Trebuchet MS", sans-serif;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: var(--vino);
+}
+.info-libro h4 {
+color: var(--azul);
+font-size: 1rem;
+line-height: 1.3;
+margin-top: 5px;
+}
+.autor {
+margin-top: 4px;
+font-size: .78rem;
+color: var(--gris);
+}
+.sinopsis {
+margin-top: 8px;
+font-size: .76rem;
+line-height: 1.5;
+color: #555;
+}
+.botones-libro {
+margin-top: auto;
+padding-top: 10px;
+display: flex;
+flex-wrap: wrap;
+gap: 5px;
+}
+.botones-libro a,
+.detalles {
+padding: 6px 9px;
+border-radius: 15px;
+font: bold .65rem "Trebuchet MS", sans-serif;
+border: 0;
+}
+.google {
+background: var(--verde);
+color: white;
+}
+.kindle {
+background: var(--azul);
+color: white;
+}
+.detalles {
+background: var(--vino-claro);
+color: var(--vino);
+}
+.vacio {
+width: 100%;
+padding: 50px;
+text-align: center;
+color: var(--gris);
+}
+/* ==================== GALERIA ==================== */
+.galeria {
+padding: 70px 5%;
+background: white;
+}
+.galeria-header {
+text-align: center;
+max-width: 700px;
+margin: 0 auto 30px;
+}
+.galeria-header p {
+margin-top: 8px;
+}
+.galeria-grid {
+max-width: 1400px;
+margin: auto;
+display: flex;
+flex-wrap: wrap;
+gap: 14px;
+}
+.foto {
+flex: 1 1 300px;
+min-height: 210px;
+border-radius: 15px;
+overflow: hidden;
+position: relative;
+display: flex;
+align-items: end;
+padding: 20px;
+color: white;
+background-size: cover;
+background-position: center;
+transition: .3s;
+}
+.foto:hover {
+transform: scale(1.02);
+}
+.foto::before {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(transparent, rgba(0,0,0,.75));
+}
+.foto div {
+position: relative;
+z-index: 1;
+}
+.foto span {
+display: block;
+color: var(--dorado);
+font: bold .7rem "Trebuchet MS", sans-serif;
+}
+.foto strong {
+display: block;
+margin-top: 4px;
+font: bold 1rem "Trebuchet MS", sans-serif;
+}
+.foto-1 {
+background-image:
+url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80");
+}
+.foto-2 {
+background-image:
+url("https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1000&q=80");
+}
+.foto-3 {
+background-image:
+url("https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=1000&q=80");
+}
+.foto-4 {
+background-image:
+url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1000&q=80");
+}
+.foto-5 {
+background-image:
+url("https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1000&q=80");
+}
+.foto-6 {
+background-image:
+url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1000&q=80");
+}
+/* ==================== FOOTER ==================== */
+footer {
+padding: 55px 5% 20px;
+background: var(--azul);
+color: #cbd3e1;
+}
+.footer-columnas {
+max-width: 1400px;
+margin: auto;
+display: flex;
+flex-wrap: wrap;
+gap: 40px;
+}
+.footer-columna {
+flex: 1 1 180px;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.principal-footer {
+flex: 2 1 300px;
+}
+.footer-logo {
+color: white;
+margin-bottom: 5px;
+}
+.footer-columna h3 {
+color: white;
+margin-bottom: 5px;
+}
+.footer-columna p,
+.footer-columna a {
+font-size: .82rem;
+}
+.footer-columna a:hover {
+color: var(--dorado);
+}
+.redes {
+display: flex;
+gap: 8px;
+margin-top: 12px;
+}
+.redes a {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: grid;
+place-items: center;
+background: rgba(255,255,255,.1);
+color: white;
+font-family: "Trebuchet MS", sans-serif;
+}
+.redes a:hover {
+background: var(--vino);
+}
+.footer-final {
+max-width: 1400px;
+margin: 40px auto 0;
+padding-top: 18px;
+border-top: 1px solid rgba(255,255,255,.12);
+display: flex;
+justify-content: space-between;
+gap: 15px;
+flex-wrap: wrap;
+font-size: .75rem;
+}
+/* ==================== MODAL ==================== */
+.modal {
+position: fixed;
+inset: 0;
+display: none;
+align-items: center;
+justify-content: center;
+padding: 20px;
+background: rgba(0,0,0,.65);
+z-index: 100;
+}
+.modal.mostrar {
+display: flex;
+}
+.modal-contenido {
+width: min(650px, 100%);
+max-height: 90vh;
+overflow: auto;
+position: relative;
+padding: 35px;
+border-radius: 18px;
+background: white;
+}
+.cerrar {
+position: absolute;
+top: 12px;
+right: 15px;
+width: 35px;
+height: 35px;
+border: 0;
+border-radius: 50%;
+background: var(--vino-claro);
+color: var(--vino);
+font-size: 1.5rem;
+}
+.modal-libro {
+display: flex;
+gap: 20px;
+}
+.modal-libro img {
+width: 140px;
+height: 205px;
+object-fit: cover;
+}
+.modal-libro h2 {
+color: var(--azul);
+}
+.modal-libro p {
+margin-top: 12px;
+}
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+.layout {
+    flex-wrap: wrap;
+}
+
+.aside,
+.lateral {
+    flex: 1 1 250px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tarjeta-aside,
+.tarjeta-lateral,
+.oferta,
+.boletin {
+    flex: 1 1 230px;
+}
+
+.main {
+    order: -1;
+    flex-basis: 100%;
+}
+
+}
+@media (max-width: 850px) {
+.barra-superior {
+    justify-content: center;
+}
+
+.menu {
+    width: 100%;
+}
+
+.telefono {
+    display: none;
+}
+
+.hero {
+    padding: 55px 6%;
+}
+
+.hero-libros {
+    display: none;
+}
+
+.catalogo-header {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+}
+@media (max-width: 600px) {
+.layout,
+.catalogo {
+    width: 94%;
+}
+
+.hero {
+    min-height: auto;
+    padding: 45px 6%;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.hero-datos {
+    gap: 20px;
+}
+
+.seccion {
+    padding: 22px;
+}
+
+.libro-card {
+    max-width: none;
+}
+
+.modal-libro {
+    flex-direction: column;
+}
+
+.modal-libro img {
+    width: 120px;
+    height: 175px;
+}
+
+.footer-final {
+    flex-direction: column;
+}
+
+}
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+}
+
+}
